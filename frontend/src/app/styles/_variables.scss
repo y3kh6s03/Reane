@@ -1,0 +1,17 @@
+$baseColor: #38393C;
+$red: #DF8B74;
+$gray: #938A90;
+$rGray: #C2C2C2;
+
+$breakpoints: (
+  'sm':'(min-width: 480px)',
+  'md':'(min-width: 786px)',
+  'lg':'(min-width: 960px)',
+  'xl':'(min-width: 1280px)'
+);
+
+@mixin mq($breakpoint) {
+  @media #{map-get($breakpoints, $breakpoint)} {
+    @content;
+  }
+}

@@ -1,9 +1,10 @@
 import { Metadata } from "next";
+
 import { accFont, jpFont, enFont } from "./styles/fonts";
+import Nav from "./components/layouts/nav/Nav";
 
-import Nav from "./components/layouts/Nav";
-
-import "./styles/global.css";
+import "./styles/globals.scss";
+import { auth } from "@/auth";
 
 export const metadata: Metadata = {
   title: {
@@ -13,16 +14,20 @@ export const metadata: Metadata = {
   description: "",
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const session = await auth();
+  const authImage = session?.user?.image;
   return (
-    <html lang="en">
+    <html lang='ja'>
       <body className={`${accFont.variable} ${jpFont.variable} ${enFont.variable}`}>
+        {authImage && <Nav props={authImage} />}
         {children}
-        <Nav />
+        <div className=''></div>
+        <div className=''></div>
       </body>
     </html>
   );

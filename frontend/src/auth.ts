@@ -13,7 +13,7 @@ export const config: NextAuthConfig = {
         }
         return true;
       } catch (e) {
-        console.log("auth.tsコールバックエラー:" + e);
+        return false;
       }
     },
   }

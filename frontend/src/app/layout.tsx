@@ -1,10 +1,10 @@
 import { Metadata } from "next";
 
+import { auth } from "@/auth";
 import { accFont, jpFont, enFont } from "./styles/fonts";
 import Nav from "./components/layouts/nav/Nav";
 
 import "./styles/globals.scss";
-import { auth } from "@/auth";
 
 export const metadata: Metadata = {
   title: {
@@ -26,8 +26,8 @@ export default async function RootLayout({
       <body className={`${accFont.variable} ${jpFont.variable} ${enFont.variable}`}>
         {authImage && <Nav props={authImage} />}
         {children}
-        <div className=''></div>
-        <div className=''></div>
+        <h1>aoewifjawoij</h1>
+
       </body>
     </html>
   );

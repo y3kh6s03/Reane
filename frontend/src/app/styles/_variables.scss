@@ -15,3 +15,11 @@ $breakpoints: (
     @content;
   }
 }
+
+.font-md {
+  font-size: 14px;
+
+  @include mq(lg){
+    font-size: 16px;
+  }
+}

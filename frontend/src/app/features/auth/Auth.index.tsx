@@ -1,9 +1,8 @@
 import React from "react";
 
-import { auth, signIn, signOut } from "@/auth";
+import { signIn, signOut } from "@/auth";
 
 export default async function Auth() {
-  const session = await auth();
   return (
     <>
       <form action={async () => {
@@ -24,7 +23,6 @@ export default async function Auth() {
       >
         <button type="submit">logout</button>
       </form>
-      <h1>{session?.user?.name}</h1>
     </>
   )
 }

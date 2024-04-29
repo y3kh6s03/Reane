@@ -1,4 +1,4 @@
-import {Montserrat, Noto_Sans_JP, Roboto_Mono} from "next/font/google";
+import {Montserrat, Noto_Sans_JP, Roboto} from "next/font/google";
 
 export const accFont = Montserrat({
   subsets: ['latin'],
@@ -16,7 +16,7 @@ export const jpFont = Noto_Sans_JP({
   variable: '--font-jp'
 })
 
-export const enFont = Roboto_Mono({
+export const enFont = Roboto({
   subsets: ['latin'],
   weight: ['300','700'],
   style: ['normal'],

@@ -1,0 +1,30 @@
+@use '../../../styles/variables' as *;
+
+.logo_container {
+  aspect-ratio: 10 / 3.2;
+  position: fixed;
+
+  &_img {
+    position: absolute;
+  }
+}
+
+.header {
+  width: 8rem;
+  margin: 3rem 0 0 5%;
+
+  @include mq(lg) {
+    margin: 1rem 0 0;
+  }
+}
+  .sm {
+    width: 8rem;
+  }
+
+  .md {
+    width: 15rem;
+  }
+
+  .lg {
+    width: 25rem;
+  }

@@ -2,16 +2,18 @@ import NextAuth, { NextAuthConfig } from "next-auth";
 import Google from "next-auth/providers/google";
 
 export const config: NextAuthConfig = {
+  theme: {
+    logo: "logo.svg"
+  },
   providers: [Google],
+  pages: {
+    signIn: "/login"
+  },
   basePath: "/api/auth",
   callbacks: {
-    authorized({ request, auth }) {
+    authorized({ auth }) {
       try {
-        const { pathname } = request.nextUrl;
-        if (pathname === "/Authenticated") {
-          return !!auth;
-        }
-        return true;
+        return !!auth;
       } catch (e) {
         return false;
       }

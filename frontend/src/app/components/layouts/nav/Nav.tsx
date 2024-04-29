@@ -20,7 +20,6 @@ export default function MobileNav({ props }: Props) {
   ];
 
   const logout = async () => {
-
     "use server"
 
     await signOut();
@@ -50,8 +49,8 @@ export default function MobileNav({ props }: Props) {
             className={styles.form}
             action={logout}>
             <button
-            className={styles.form_button}
-            type='submit'>
+              className={styles.form_button}
+              type='submit'>
               Logout
             </button>
           </form>

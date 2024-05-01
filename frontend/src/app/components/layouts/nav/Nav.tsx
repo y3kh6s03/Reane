@@ -38,7 +38,10 @@ export default function MobileNav({ props }: Props) {
                   />
                 </div>
                 <span className={styles.name}>
-                  {item.name}
+                  {item.name === 'mypage'
+                    ? 'My Page'
+                    : item.name.charAt(0).toUpperCase() + item.name.slice(1)
+                  }
                 </span>
               </Link>
             </li>

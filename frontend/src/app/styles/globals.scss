@@ -12,7 +12,8 @@ body {
   overflow-x: hidden;
   @extend .font-md;
   font-family: var(--font-jp);
-  background-color: $baseColor;
+  background: rgb(255, 255, 255);
+  background: linear-gradient(174deg, rgba(255, 255, 255, 1) 0%, rgba(118, 119, 121, 1) 0%, rgba(77, 78, 80, 1) 19%, rgba(56, 57, 60, 1) 42%, rgba(56, 57, 60, 1) 100%);
   position: relative;
 }
 
@@ -38,4 +39,28 @@ button {
   background: none;
   color: white;
   font-size: 1rem;
+}
+
+input {
+  appearance: none;
+  background-color: transparent;
+  border: none;
+  margin: 0;
+  padding: 0;
+  font: inherit;
+  color: inherit;
+  outline: none;
+}
+
+textarea {
+  margin: 0;
+  padding: 0;
+  border: none;
+  font-size: inherit;
+  font-family: inherit;
+  line-height: normal;
+  resize: none;
+  background-color: transparent;
+  color: inherit;
+  overflow-y: auto;
 }

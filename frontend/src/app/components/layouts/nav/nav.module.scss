@@ -36,6 +36,7 @@
     height: 2rem;
     display: grid;
     grid-template-columns: repeat(5, 1fr);
+    place-items: center;
 
     @include mq(lg) {
       padding: 5rem 1rem 0 0;
@@ -51,6 +52,15 @@
 
     @include mq(lg) {
       height: 4rem;
+    }
+
+    &:nth-child(3){
+      & .image_container{
+        background-color: white;
+        width: 1.7rem;
+        aspect-ratio: 1/1;
+        border-radius: 50%;
+      }
     }
 
     &_link {

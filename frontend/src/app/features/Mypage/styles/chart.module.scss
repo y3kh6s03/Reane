@@ -1,25 +1,8 @@
-@use '../../styles/variables' as *;
-
-.container {
-  width: 100vw;
-  height: 100vh;
-  display: grid;
-  grid-template-rows: repeat(2, 1fr) 7fr;
-  padding-top: 7rem;
-  place-items: center;
-
-  @include mq(lg) {
-    width: calc(100vw - 36rem);
-    padding-top: 3rem;
-    margin: 0 auto;
-    grid-template-rows: 1fr 5fr;
-  }
-}
+@use '../../../styles/variables' as *;
 
 .skills_wrapper {
-  width: 100vw;
+  width: 100%;
   aspect-ratio: 1/1;
-  padding: 0 3%;
 
   @include mq(sm) {
     width: calc((100vh / 9) * 7 - 7rem);

@@ -12,6 +12,7 @@ body {
   overflow-x: hidden;
   @extend .font-md;
   font-family: var(--font-jp);
+  color: white;
   background: rgb(255, 255, 255);
   background: linear-gradient(174deg, rgba(255, 255, 255, 1) 0%, rgba(118, 119, 121, 1) 0%, rgba(77, 78, 80, 1) 19%, rgba(56, 57, 60, 1) 42%, rgba(56, 57, 60, 1) 100%);
   position: relative;

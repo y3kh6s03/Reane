@@ -1,7 +1,7 @@
 'use client'
 
 import { useEffect, useRef, useState } from "react"
-import styles from "./mypage.module.scss"
+import styles from "./styles/chart.module.scss"
 
 export default function Chart() {
 

@@ -5,6 +5,7 @@
   height: 100vh;
   display: grid;
   grid-template-rows: repeat(2, 1fr) 7fr;
+  gap: 2rem;
   padding: 7rem 3%;
   place-items: center;
 

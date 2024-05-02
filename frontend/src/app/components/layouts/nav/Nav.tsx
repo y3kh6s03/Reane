@@ -30,7 +30,7 @@ export default function MobileNav({ props }: Props) {
         {
           navItems.map(item =>
             <li key={item.id} className={styles.nav_li}>
-              <Link href={item.name} className={styles.nav_li_link}>
+              <Link href={`/${item.name}`} className={styles.nav_li_link}>
                 <div className={styles.image_container}>
                   <Image
                     className={styles.image_container_img}

@@ -32,6 +32,7 @@ export default async function RootLayout({
           }
           {children}
         </main>
+        <SideBar />
       </body>
     </html>
   );

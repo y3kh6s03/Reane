@@ -2,7 +2,7 @@ import Image from "next/image";
 import styles from "./Logo.module.scss"
 
 interface Props {
-  size: "header" | "sm" | "md" | "lg"
+  size: "sm" | "md" | "lg"
 }
 
 export default function Logo({ size }: Props) {

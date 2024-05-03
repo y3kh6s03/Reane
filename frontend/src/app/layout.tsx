@@ -6,6 +6,7 @@ import Nav from "./components/layouts/nav/Nav";
 
 import "./styles/globals.scss";
 import Logo from "./components/elements/Logo/Logo";
+import SideBar from "./components/layouts/sidebar/SideBar";
 
 export const metadata: Metadata = {
   title: {
@@ -34,6 +35,7 @@ export default async function RootLayout({
         <main>
           {children}
         </main>
+        <SideBar />
       </body>
     </html>
   );

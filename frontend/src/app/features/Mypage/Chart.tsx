@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react"
 import styles from "./styles/chart.module.scss"
+import ProgressMeter from "./ProgressMeter";
 
 export default function Chart() {
 
@@ -56,6 +57,8 @@ export default function Chart() {
             )
           })
         }
+        <ProgressMeter />
+
       </div>
     </div>
   )

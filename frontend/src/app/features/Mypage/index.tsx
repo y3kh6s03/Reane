@@ -15,7 +15,7 @@ export default async function MyPageIndex() {
     <div className={styles.container}>
       {
         authData &&
-       <AuthDisp authData={authData}/>
+        <AuthDisp authData={authData} />
       }
       <Reach />
       <Chart />

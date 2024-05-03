@@ -47,7 +47,7 @@ export default function MobileNav({ props }: Props) {
             </li>
           )
         }
-        <li>
+        <li className={styles.nav_li}>
           <form
             className={styles.form}
             action={logout}>

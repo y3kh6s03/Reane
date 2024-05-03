@@ -2,19 +2,10 @@
 
 .logo_container {
   aspect-ratio: 10 / 3.2;
-  position: fixed;
+  position: relative;
 
   &_img {
     position: absolute;
-  }
-}
-
-.header {
-  width: 8rem;
-  margin: 3rem 0 0 5%;
-
-  @include mq(lg) {
-    margin: 1rem 0 0;
   }
 }
   .sm {

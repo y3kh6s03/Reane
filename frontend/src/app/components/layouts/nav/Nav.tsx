@@ -3,8 +3,8 @@ import React from 'react';
 import Link from "next/link";
 import Image from "next/image";
 
-import { signOut } from '@/auth';
 import styles from "./nav.module.scss"
+import Logout from '../../elements/logout/Logout';
 
 interface Props {
   props: string
@@ -19,11 +19,6 @@ export default function MobileNav({ props }: Props) {
     { id: 5, name: 'setting' },
   ];
 
-  const logout = async () => {
-    "use server"
-
-    await signOut();
-  }
   return (
     <nav className={styles.nav}>
       <ul className={styles.nav_ul}>
@@ -47,8 +42,9 @@ export default function MobileNav({ props }: Props) {
             </li>
           )
         }
-        <li className={styles.nav_li}>
-          <form
+        <li className={`${styles.nav_li} ${styles.nav_logout}`}>
+          <Logout />
+          {/* <form
             className={styles.form}
             action={logout}>
             <button
@@ -56,7 +52,7 @@ export default function MobileNav({ props }: Props) {
               type='submit'>
               Logout
             </button>
-          </form>
+          </form> */}
         </li>
       </ul>
     </nav>

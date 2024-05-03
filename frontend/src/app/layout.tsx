@@ -5,8 +5,7 @@ import { accFont, jpFont, enFont } from "./styles/fonts";
 import Nav from "./components/layouts/nav/Nav";
 
 import "./styles/globals.scss";
-import Logo from "./components/elements/Logo/Logo";
-import SideBar from "./components/layouts/sidebar/SideBar";
+import Header from "./components/layouts/header/Header";
 
 export const metadata: Metadata = {
   title: {
@@ -26,13 +25,11 @@ export default async function RootLayout({
   return (
     <html lang='ja'>
       <body className={`${accFont.variable} ${jpFont.variable} ${enFont.variable}`}>
-        {authImage &&
-          <>
-            <Logo size="header" />
-            <Nav props={authImage} />
-          </>
-        }
         <main>
+          <Header />
+          {authImage &&
+            <Nav props={authImage} />
+          }
           {children}
         </main>
         <SideBar />

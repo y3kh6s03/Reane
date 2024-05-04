@@ -6,6 +6,7 @@ import Nav from "./components/layouts/nav/Nav";
 
 import "./styles/globals.scss";
 import Header from "./components/layouts/header/Header";
+import SideBar from "./components/layouts/sidebar/SideBar";
 
 export const metadata: Metadata = {
   title: {

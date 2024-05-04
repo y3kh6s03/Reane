@@ -7,7 +7,7 @@ import LoginForm from "./form"
 export default async function LoginIndex() {
   const session = await auth();
   if (session?.user) {
-    redirect('/')
+    redirect('/mypage')
   }
   return (
     <LoginForm />

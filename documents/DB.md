@@ -1,9 +1,10 @@
 # テーブル定義書
 users
-| PK | COLUMN | TYPE        | NULL | DEFAULT | FK | UNIQUE | AUTO | COMMENT          |
-| ◯  | id     | unsignedInteger     |      |         |    |        | ◯    |                  |
-|    | name   | string(20)  | ◯    |         |    |        |      | null=google-name |
-|    | email  | string(100) |      |         |    |        |      | google email     |
+| PK | COLUMN | TYPE            | NULL | DEFAULT | FK | UNIQUE | AUTO | COMMENT          |
+| ◯  | id     | unsignedInteger |      |         |    |        | ◯    |                  |
+|    | name   | string(20)      | ◯    |         |    |        |      | null=google-name |
+|    | email  | string(100)     |      |         |    |        |      | google email     |
+|    | image  | string(255)     | ◯    |         |    |        |      |                  |
 
 goals
 | PK | COLUMN          | TYPE            | NULL | DEFAULT | FK | UNIQUE | AUTO | COMMENT     |

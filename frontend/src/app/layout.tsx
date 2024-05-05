@@ -23,17 +23,20 @@ export default async function RootLayout({
 }>) {
   const session = await auth();
   const authImage = session?.user?.image;
+
   return (
     <html lang='ja'>
       <body className={`${accFont.variable} ${jpFont.variable} ${enFont.variable}`}>
         <main>
-          <Header />
           {authImage &&
-            <Nav props={authImage} />
+            <>
+              <Header />
+              <Nav props={authImage} />
+              <SideBar />
+            </>
           }
           {children}
         </main>
-        <SideBar />
       </body>
     </html>
   );

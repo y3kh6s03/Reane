@@ -16,4 +16,12 @@
     grid-template-rows: 1fr 5fr;
     gap: 1.5rem;
   }
+
+  & .authDetail_container{
+    justify-self: flex-start;
+
+    @include mq(lg){
+      display: none;
+    }
+  }
 }

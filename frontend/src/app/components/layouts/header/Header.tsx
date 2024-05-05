@@ -1,4 +1,4 @@
-import Logo from "../../elements/Logo/Logo";
+import Logo from "../../elements/logo/Logo";
 import Logout from "../../elements/logout/Logout";
 import styles from "./header.module.scss"
 

@@ -1,5 +1,5 @@
 import Image from "next/image";
-import styles from "./styles/authDisp.module.scss";
+import styles from "./AuthDetail.module.scss"
 
 interface AuthData {
   authData: {
@@ -8,7 +8,7 @@ interface AuthData {
   }
 }
 
-export default function AuthDisp({ authData }: AuthData) {
+export default function AuthDetail({ authData }: AuthData) {
   // DB取得データに変更
   const days = 224;
   return (

@@ -1,9 +1,9 @@
 import { auth } from "@/auth"
-import AuthDisp from "./AuthDisp"
-import Chart from "./Chart"
-import Reach from "./Reach"
+import AuthDetail from "@/app/components/elements/authDetail/AuthDetail";
 
 import styles from "./styles/mypage.module.scss"
+import Reach from "./Reach";
+import Chart from "./Chart";
 
 export default async function MyPageIndex() {
   const session = await auth();
@@ -15,7 +15,9 @@ export default async function MyPageIndex() {
     <div className={styles.container}>
       {
         authData &&
-        <AuthDisp authData={authData} />
+        <div className={styles.authDetail_container}>
+          <AuthDetail authData={authData} />
+        </div>
       }
       <Reach />
       <Chart />

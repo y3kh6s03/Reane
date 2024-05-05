@@ -1,7 +1,8 @@
-import Auth from "./features/auth/Auth.index";
+import HomeIndex from "./features/home/Index";
+
 
 export default function Home() {
   return (
-    <Auth />
+    <HomeIndex />
   );
 }

@@ -1,4 +1,4 @@
-import MyPageIndex from "../features/Mypage";
+import MyPageIndex from "../features/mypage/Index";
 
 export default function MyPage() {
   return (

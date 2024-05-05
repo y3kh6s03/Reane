@@ -20,9 +20,18 @@ body {
 }
 
 body {
+  padding: 0 3%;
   @include mq(lg) {
-    padding: 0 3%;
   }
+}
+
+main{
+
+  @include mq(lg){
+    width: calc(100vw - 36rem);
+    margin: 0 auto;
+  }
+
 }
 
 a {

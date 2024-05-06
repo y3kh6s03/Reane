@@ -3,8 +3,8 @@ import styles from "./AuthDetail.module.scss"
 
 interface AuthData {
   authData: {
-    name: string,
-    image: string,
+    authName: string,
+    authImage: string,
   }
 }
 
@@ -14,11 +14,11 @@ export default function AuthDetail({ authData }: AuthData) {
   return (
     <div className={styles.auth}>
       <div className={styles.auth_icon_container}>
-        <Image src={authData.image} fill sizes="100%" alt="icon" />
+        <Image src={authData.authImage} fill sizes="100%" alt="icon" />
       </div>
       <div className={styles.auth_details}>
         <span className={styles.auth_details_name}>
-          {authData.name}
+          {/* {authData.authName} */}
         </span>
         <span className={styles.auth_details_days}>
           Days: {days}

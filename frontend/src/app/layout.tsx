@@ -7,6 +7,7 @@ import Nav from "./components/layouts/nav/Nav";
 import "./styles/globals.scss";
 import Header from "./components/layouts/header/Header";
 import SideBar from "./components/layouts/sidebar/SideBar";
+import ChartProvider from "./components/libs/ChartProvider";
 
 export const metadata: Metadata = {
   title: {
@@ -35,7 +36,9 @@ export default async function RootLayout({
               <SideBar />
             </>
           }
-          {children}
+          <ChartProvider>
+            {children}
+          </ChartProvider>
         </main>
       </body>
     </html>

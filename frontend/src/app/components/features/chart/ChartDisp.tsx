@@ -1,10 +1,20 @@
 import styles from "./styles/chartDisp.module.scss";
 
-export default function ChartDisp(){
-  return(
+interface ChartDispData {
+  chartDispData: {
+    createdAt: string,
+    actionCount: number,
+    executedCount: number
+  }
+}
+
+export default function ChartDisp({ chartDispData }: ChartDispData) {
+  return (
     <div className={styles.container}>
-      <span className={styles.date}>since: 2024 / 01 / 01</span>
-      <span className={styles.action_count}>action: 202 / 398</span>
+      <span className={styles.date}>since: {chartDispData.createdAt}</span>
+      <span className={styles.action_count}>
+        action: {chartDispData.executedCount} / {chartDispData.actionCount}
+      </span>
     </div>
   )
 }

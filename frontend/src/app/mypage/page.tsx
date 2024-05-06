@@ -1,7 +1,7 @@
-import ChartIndex from "../components/features/chart";
+import MyChart from "./MyChart";
 
 export default function MyPage() {
   return (
-    <ChartIndex />
+    <MyChart />
   )
 }

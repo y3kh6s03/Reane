@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import styles from "./styles/reach.module.scss";
+import { ReferencesButton } from "../../elements/button/Button";
 
 export default function Reach() {
   return (
@@ -14,16 +15,17 @@ export default function Reach() {
         </h3>
         <Link className={styles.edit_link} href='/' >
           <div className={styles.edit_link_inner}>
-            <Image src='create.svg' fill sizes="100%" alt="create" />
+            <Image src='/create.svg' fill sizes="100%" alt="create" />
           </div>
         </Link>
       </div>
-      <Link className={styles.review_link} href='/'>
+      <ReferencesButton />
+      {/* <Link className={styles.review_link} href='/'>
         振り返り
         <div className={styles.review_link_inner}>
-          <Image src='arrow.svg' fill sizes="100%" alt="arrow" />
+          <Image src='/arrow.svg' fill sizes="100%" alt="arrow" />
         </div>
-      </Link>
+      </Link> */}
     </div>
   )
 }

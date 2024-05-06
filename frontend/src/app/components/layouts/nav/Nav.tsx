@@ -32,7 +32,7 @@ export default function MobileNav({ props }: Props) {
                 <div className={styles.image_container}>
                   <Image
                     className={styles.image_container_img}
-                    src={item.name !== 'mypage' ? `${item.name}.svg` : props} fill sizes='100%' alt={`${item.name}`}
+                    src={item.name !== 'mypage' ? `/${item.name}.svg` : props} fill sizes='100%' alt={`${item.name}`}
                   />
                 </div>
                 <span className={styles.name}>

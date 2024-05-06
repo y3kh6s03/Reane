@@ -1,13 +1,19 @@
 'use client'
 
-import { useEffect, useRef, useState } from "react"
+import { useEffect, useRef, useState } from "react";
 import styles from "./chart.module.scss"
 
-export default function Chart() {
+interface ChartData {
+  chartData: {
+    skills: string[]
+  }
+}
 
-  const skills = ['ベンチ100kg', 'RUN100km', '食事制限', '生活習慣', 'デッドリフト300kg', 'スクワット100', '体幹', '腕立て', 'メンタル', 'コネクション', 'メンテナンス', 'リフレッシュ'];
+export default function Chart({ chartData }: ChartData) {
 
-  const skillLength = skills.length;
+  // const skills = ['ベンチ100kg', 'RUN100km', '食事制限', '生活習慣', 'デッドリフト300kg', 'スクワット100', '体幹', '腕立て', 'メンタル', 'コネクション', 'メンテナンス', 'リフレッシュ'];
+
+  const skillLength = chartData.skills.length;
   const [rad, setRad] = useState<number>();
   const [r, setR] = useState<number>();
   const [radOffset, setRadOffset] = useState<number>();
@@ -32,7 +38,7 @@ export default function Chart() {
       className={styles.skills_container}
     >
       {
-        skills.map((skill, index) => {
+        chartData.skills.map((skill, index) => {
           const y = rad && radOffset && r
             ? Math.sin(rad * index + radOffset) * r + r
             : 0;

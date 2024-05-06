@@ -1,18 +1,37 @@
-import { auth } from "@/auth"
 import AuthDetail from "@/app/components/elements/authDetail/AuthDetail";
-
+import type { ChartState } from "@/store/chartSlice";
 import styles from "./styles/mypage.module.scss"
 import Reach from "./Reach";
 import Chart from "../../elements/chart/Chart";
 import ProgressMeter from "./ProgressMeter";
 import ChartDisp from "./ChartDisp";
 
-export default async function ChartIndex() {
-  const session = await auth();
+export default function ChartIndex({ chart }: ChartState) {
+
   const authData = {
-    name: session?.user?.name || "",
-    image: session?.user?.image || ""
+    authName: chart.authName,
+    authImage: chart.authImage
   }
+
+  const reachData = {
+    name: chart.reachName,
+  }
+
+  const chartData ={
+    skills: chart.skills
+  }
+
+  const progressData ={
+    actionCount: chart.actionCount,
+    executedCount: chart.executedActionCount
+  }
+
+  const chartDispData = {
+    createdAt: chart.createdAt,
+    actionCount: chart.actionCount,
+    executedCount: chart.executedActionCount
+  }
+
   return (
     <div className={styles.container}>
       {
@@ -21,11 +40,11 @@ export default async function ChartIndex() {
           <AuthDetail authData={authData} />
         </div>
       }
-      <Reach />
+      <Reach reachData={reachData}/>
       <div className={styles.skills_wrapper}>
-        <Chart />
-        <ProgressMeter />
-        <ChartDisp />
+        <Chart chartData={chartData}/>
+        <ProgressMeter progressData={progressData}/>
+        <ChartDisp chartDispData={chartDispData}/>
       </div>
     </div>
   )

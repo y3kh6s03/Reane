@@ -1,7 +1,7 @@
-import ChartIndex from "@/app/components/features/chart";
+import UsersChart from "./UsersChart";
 
 export default function Show() {
   return (
-    <ChartIndex/>
+    <UsersChart/>
   )
 }

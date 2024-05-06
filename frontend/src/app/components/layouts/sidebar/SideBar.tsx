@@ -5,8 +5,8 @@ import styles from "./sidebar.module.scss"
 export default async function SideBar() {
   const session = await auth();
   const authData = {
-    name: session?.user?.name || "",
-    image: session?.user?.image || ""
+    authName: session?.user?.name || "",
+    authImage: session?.user?.image || ""
   }
   return (
     <div className={styles.container}>

@@ -1,11 +1,18 @@
 import styles from "./styles/progressMeter.module.scss"
 
-export default function ProgressMeter() {
+interface ProgressData {
+  progressData: {
+    actionCount: number,
+    executedCount: number
+  }
+}
+
+export default function ProgressMeter({ progressData }: ProgressData) {
 
   // SVGの描画サイズ
   const size = 450;
   // 現在の進捗
-  const progressPercent = 90;
+  const progressPercent = Math.floor(progressData.executedCount / progressData.actionCount * 100);
   // 円の半径
   const radius = 190;
   // 円周
@@ -47,7 +54,7 @@ export default function ProgressMeter() {
             }}
           />
         </svg>
-        <span className={styles.text_number}>90<span className={styles.text_percent}>%</span></span>
+        <span className={styles.text_number}>{progressPercent}<span className={styles.text_percent}>%</span></span>
       </div>
     </>
   );

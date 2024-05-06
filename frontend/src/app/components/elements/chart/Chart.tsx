@@ -1,9 +1,7 @@
 'use client'
 
 import { useEffect, useRef, useState } from "react"
-import styles from "./styles/chart.module.scss"
-import ProgressMeter from "./ProgressMeter";
-import ChartDisp from "./ChartDisp";
+import styles from "./chart.module.scss"
 
 export default function Chart() {
 
@@ -29,39 +27,34 @@ export default function Chart() {
   }, [skillLength]);
 
   return (
-    <div className={styles.skills_wrapper}>
-      <div
-        ref={skillsContainer}
-        className={styles.skills_container}
-      >
-        {
-          skills.map((skill, index) => {
-            const y = rad && radOffset && r
-              ? Math.sin(rad * index + radOffset) * r + r
-              : 0;
-            const x = rad && radOffset && r
-              ? Math.cos(rad * index + radOffset) * r + r
-              : 0;
-            return (
-              <div
-                ref={skillsInner}
-                className={styles.skills_inner}
-                style={{ left: x, top: y }}
-                key={skill}
+    <div
+      ref={skillsContainer}
+      className={styles.skills_container}
+    >
+      {
+        skills.map((skill, index) => {
+          const y = rad && radOffset && r
+            ? Math.sin(rad * index + radOffset) * r + r
+            : 0;
+          const x = rad && radOffset && r
+            ? Math.cos(rad * index + radOffset) * r + r
+            : 0;
+          return (
+            <div
+              ref={skillsInner}
+              className={styles.skills_inner}
+              style={{ left: x, top: y }}
+              key={skill}
+            >
+              <span
+                className={styles.skills_inner_name}
               >
-                <span
-                  className={styles.skills_inner_name}
-                >
-                  {skill}
-                </span>
-              </div>
-            )
-          })
-        }
-        <ProgressMeter />
-        <ChartDisp />
-
-      </div>
+                {skill}
+              </span>
+            </div>
+          )
+        })
+      }
     </div>
   )
 }

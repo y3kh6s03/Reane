@@ -3,9 +3,11 @@ import AuthDetail from "@/app/components/elements/authDetail/AuthDetail";
 
 import styles from "./styles/mypage.module.scss"
 import Reach from "./Reach";
-import Chart from "./Chart";
+import Chart from "../../elements/chart/Chart";
+import ProgressMeter from "./ProgressMeter";
+import ChartDisp from "./ChartDisp";
 
-export default async function MyPageIndex() {
+export default async function ChartIndex() {
   const session = await auth();
   const authData = {
     name: session?.user?.name || "",
@@ -20,7 +22,11 @@ export default async function MyPageIndex() {
         </div>
       }
       <Reach />
-      <Chart />
+      <div className={styles.skills_wrapper}>
+        <Chart />
+        <ProgressMeter />
+        <ChartDisp />
+      </div>
     </div>
   )
 }

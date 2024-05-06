@@ -1,5 +1,5 @@
 import React from "react"
-import LoginIndex from "../features/login/Index"
+import LoginIndex from "../components/features/login/Index"
 
 export default function Login() {
   return (

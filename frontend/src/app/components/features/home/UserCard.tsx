@@ -5,11 +5,11 @@ import Button from "@/app/components/elements/button/Button";
 import { Watch } from "@/app/components/elements/icons/Icons";
 import styles from "./styles/UserCard.module.scss";
 
-
 export default function UserCard() {
+  const chartId = 1;
   return (
     <div className={styles.card_wrapper}>
-      <Link href="/" className={styles.card}>
+      <Link href={`/show/${chartId}`} className={styles.card}>
         <div className={styles.user}>
           <div className={styles.user_icon_container}>
             <Image src="/defaultIcon.png" fill sizes="100%" alt="icon" />

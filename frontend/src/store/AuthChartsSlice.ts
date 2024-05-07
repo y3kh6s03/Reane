@@ -1,11 +1,11 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 // 状態管理の値の型定義を行う
-export interface ChartState {
-  chart: {
+export interface AuthChartState {
+  authChartData: {
     id: number,
-    authImage: string,
-    authName: string,
+    userImage: string,
+    userName: string,
     days: number,
     reachName: string,
     skills: string[],
@@ -14,22 +14,23 @@ export interface ChartState {
     createdAt: string,
   }
 }
+
 // 値の初期化
-const initialState: ChartState = {
-  chart: {
+const initialState: AuthChartState = {
+  authChartData: {
     id: 123,
-    authImage: '/defaultIcon.png',
-    authName: 'yosuke',
+    userImage: '/google.svg',
+    userName: 'yosuke',
     days: 254,
-    reachName: 'ベンチプレス888kg',
-    skills:  ['100kg', '食事制限', '生活習慣', 'デッドリフト300kg', 'スクワット100', '体幹', '腕立て', 'メンタル', 'コネクション', 'メンテナンス', 'リフレッシュ'],
-    actionCount: 999,
-    executedActionCount: 444,
+    reachName: 'ウェブ開発スキルの向上',
+    skills:  ['プログラミング言語', 'フロントエンド開発', 'バックエンド開発', 'データベース', 'バージョン管理', 'テストとデバッグ', 'セキュリティ', 'メンタル', 'クラウドサービス'],
+    actionCount: 323,
+    executedActionCount: 200,
     createdAt: '2024-02-30',
   }
 }
 // sliceを定義する
-const chartsSlice = createSlice({
+const authChartsSlice = createSlice({
   name: "authorChart",
   initialState,
   reducers: {},
@@ -37,4 +38,4 @@ const chartsSlice = createSlice({
 // sliceで定義したreducersのプロパティ名がそのままactionのタイプとして指定することができる
 // export const { increment, amoutAdd } = counterSlice.actions;
 // storeで登録するためにここで作成したsliceを送信する
-export default chartsSlice.reducer;
+export default authChartsSlice.reducer;

@@ -8,7 +8,6 @@ interface ProgressData {
 }
 
 export default function ProgressMeter({ progressData }: ProgressData) {
-
   // SVGの描画サイズ
   const size = 450;
   // 現在の進捗

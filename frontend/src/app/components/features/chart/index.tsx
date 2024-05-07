@@ -1,51 +1,76 @@
 import AuthDetail from "@/app/components/elements/authDetail/AuthDetail";
-import type { ChartState } from "@/store/chartSlice";
+import { useSession } from "next-auth/react";
 import styles from "./styles/mypage.module.scss"
 import Reach from "./Reach";
-import Chart from "../../elements/chart/Chart";
+
 import ProgressMeter from "./ProgressMeter";
 import ChartDisp from "./ChartDisp";
+import Chart from "../../elements/chart/Chart";
+import Button from "../../elements/button/Button";
 
-export default function ChartIndex({ chart }: ChartState) {
+interface ChartState {
+  chartData: {
+    id: number,
+    userImage: string,
+    userName: string,
+    days: number,
+    reachName: string,
+    skills: string[],
+    actionCount: number,
+    executedActionCount: number,
+    createdAt: string,
+  }
+}
 
-  const authData = {
-    authName: chart.authName,
-    authImage: chart.authImage
+export default function ChartIndex({ chartData }: ChartState) {
+  const { data: session } = useSession();
+  const authName = session?.user?.name;
+  const userData = {
+    userName: chartData.userName,
+    userImage: chartData.userImage
   }
 
   const reachData = {
-    name: chart.reachName,
+    name: chartData.reachName,
+    userName: chartData.userName,
+    userImage: chartData.userImage
   }
 
-  const chartData ={
-    skills: chart.skills
+  const skillDatas = {
+    skills: chartData.skills
   }
 
-  const progressData ={
-    actionCount: chart.actionCount,
-    executedCount: chart.executedActionCount
+  const progressData = {
+    actionCount: chartData.actionCount,
+    executedCount: chartData.executedActionCount
   }
 
   const chartDispData = {
-    createdAt: chart.createdAt,
-    actionCount: chart.actionCount,
-    executedCount: chart.executedActionCount
+    createdAt: chartData.createdAt,
+    actionCount: chartData.actionCount,
+    executedCount: chartData.executedActionCount
   }
 
   return (
     <div className={styles.container}>
-      {
-        authData &&
-        <div className={styles.authDetail_container}>
-          <AuthDetail authData={authData} />
-        </div>
-      }
-      <Reach reachData={reachData}/>
-      <div className={styles.skills_wrapper}>
-        <Chart chartData={chartData}/>
-        <ProgressMeter progressData={progressData}/>
-        <ChartDisp chartDispData={chartDispData}/>
+      <div className={styles.authDetail_container}>
+        <AuthDetail userData={userData} />
       </div>
+        <Reach reachData={reachData} />
+      <div className={styles.skills_wrapper}>
+        <Chart chartData={skillDatas} />
+        <ProgressMeter progressData={progressData} />
+        <ChartDisp chartDispData={chartDispData} />
+      </div>
+      {
+        authName !== chartData.userName
+          ? <div className={styles.icons_container}>
+            <Button buttonName="like" />
+            <Button buttonName="favorite" />
+            <Button buttonName="create" />
+          </div>
+          : ''
+      }
     </div>
   )
 }

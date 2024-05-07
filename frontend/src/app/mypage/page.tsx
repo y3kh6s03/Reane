@@ -1,6 +1,7 @@
 import MyChart from "./MyChart";
 
-export default function MyPage() {
+export default async function MyPage() {
+
   return (
     <MyChart />
   )

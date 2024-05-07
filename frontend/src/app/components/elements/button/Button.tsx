@@ -3,7 +3,7 @@ import Link from "next/link"
 import styles from "./Button.module.scss"
 
 type ButtonName = {
-  buttonName: 'like' | 'favorite'
+  buttonName: 'like' | 'favorite' | 'create';
 }
 
 export default function Button({ buttonName }: ButtonName) {

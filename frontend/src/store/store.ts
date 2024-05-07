@@ -2,11 +2,13 @@
 // store作成するための関数をインポート
 import { configureStore } from "@reduxjs/toolkit";
 // store管理するsliceを読み込み
-import chartReducer from "./chartSlice";
+import AuthChartsReducer from "./AuthChartsSlice";
+import UserChartsReducer from "./UserChartsSlice";
 
 export const store = configureStore({
-  reducer:{
-    chart: chartReducer,
+  reducer: {
+    authChart: AuthChartsReducer,
+    usersChart: UserChartsReducer
   }
 })
 

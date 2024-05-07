@@ -37,4 +37,13 @@
       }
     }
   }
+  & .authDetail_container{
+    display: none;
+
+    @include mq(lg){
+      display: flex;
+      justify-content: flex-end;
+      padding-right: 2rem;
+    }
+  }
 }

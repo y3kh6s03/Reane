@@ -1,6 +1,6 @@
 @use '@/styles/variables' as *;
 
-.skills_wrapper{
+.skills_wrapper {
   width: 100%;
   aspect-ratio: 1/1;
   position: relative;
@@ -36,11 +36,19 @@
     gap: 1.5rem;
   }
 
-  & .authDetail_container{
+  & .authDetail_container {
     justify-self: flex-start;
 
-    @include mq(lg){
+    @include mq(lg) {
       display: none;
     }
+  }
+
+  & .icons_container {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+    margin-right: 2rem;
   }
 }

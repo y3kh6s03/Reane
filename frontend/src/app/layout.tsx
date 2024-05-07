@@ -29,14 +29,14 @@ export default async function RootLayout({
     <html lang='ja'>
       <body className={`${accFont.variable} ${jpFont.variable} ${enFont.variable}`}>
         <main>
-          {authImage &&
-            <>
-              <Header />
-              <Nav props={authImage} />
-              <SideBar />
-            </>
-          }
           <ChartProvider>
+            {authImage &&
+              <>
+                <Header />
+                <Nav props={authImage} />
+                <SideBar />
+              </>
+            }
             {children}
           </ChartProvider>
         </main>

@@ -8,7 +8,7 @@ import styles from "./create.module.scss";
 import { ModalToggleButton } from "../../elements/button/Button";
 import SkillInputModal from "../../elements/Modal/SkillInputModal";
 
-const TestModalContainer = ({ children }: { children: React.ReactNode }) => {
+const SkillInputModalContainer = ({ children }: { children: React.ReactNode }) => {
   const target = document.querySelector('#create');
   if (target) {
     return createPortal(children, target);
@@ -24,7 +24,6 @@ interface UserData {
 }
 
 export default function CreateIndex({ userData }: UserData) {
-  // const [skills, setSkills] = useState<string[]>([]);
   const { addSkills } = useAppSellector((state) => state.addSkills)
   const [isModal, setIsModal] = useState(false);
 
@@ -40,11 +39,9 @@ export default function CreateIndex({ userData }: UserData) {
         addSkills.map((skill) => <h3 key={skill}>{skill}</h3>)
       }
       {isModal &&
-        <TestModalContainer>
-          <SkillInputModal
-            // setSkills={setSkills}
-            setIsModal={setIsModal} />
-        </TestModalContainer>
+        <SkillInputModalContainer>
+          <SkillInputModal setIsModal={setIsModal} />
+        </SkillInputModalContainer>
       }
     </div>
   )

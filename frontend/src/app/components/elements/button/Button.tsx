@@ -1,10 +1,15 @@
 import Image from "next/image"
 import Link from "next/link"
+import { Dispatch, SetStateAction } from "react";
 import styles from "./Button.module.scss"
 
 type ButtonName = {
   buttonName: 'like' | 'favorite' | 'create';
 }
+
+type ModalToggleButtonProps = {
+  setIsModal: Dispatch<SetStateAction<boolean>>;
+};
 
 export default function Button({ buttonName }: ButtonName) {
   return (
@@ -27,6 +32,16 @@ export function ReferencesButton() {
   )
 }
 
+export function ModalToggleButton({ setIsModal }: ModalToggleButtonProps) {
+  const toggleModal = () => {
+    setIsModal((prev: boolean) => !prev);
+  }
+  return (
+    <button type="button" onClick={() => { toggleModal() }}>
+      +
+    </button>
+  )
+}
 
 // 編集ページにリンクするボタンをここで作成してコンポーネントかしていこう
 // Reachからコードを取得してくる

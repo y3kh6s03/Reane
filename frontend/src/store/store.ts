@@ -4,11 +4,13 @@ import { configureStore } from "@reduxjs/toolkit";
 // store管理するsliceを読み込み
 import AuthChartsReducer from "./AuthChartsSlice";
 import UserChartsReducer from "./UserChartsSlice";
+import AddSkillsSlice from "./AddSkillsSlice";
 
 export const store = configureStore({
   reducer: {
     authChart: AuthChartsReducer,
-    usersChart: UserChartsReducer
+    usersChart: UserChartsReducer,
+    addSkills: AddSkillsSlice
   }
 })
 

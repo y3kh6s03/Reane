@@ -2,9 +2,7 @@
 
 import { useAppSellector } from "@/store/hooks";
 import { SessionProvider } from "next-auth/react";
-import ChartIndex from "../components/features/chart/Index";
-
-
+import ChartIndex from "../components/features/chart";
 
 export default function MyChart() {
   const { authChartData } = useAppSellector((state) => state.authChart)

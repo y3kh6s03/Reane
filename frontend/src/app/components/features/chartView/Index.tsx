@@ -1,6 +1,6 @@
 import AuthDetail from "@/app/components/elements/authDetail/AuthDetail";
 import { useSession } from "next-auth/react";
-import styles from "./styles/mypage.module.scss"
+import styles from "./styles/ChartView.module.scss";
 import Reach from "./Reach";
 
 import ProgressMeter from "./ProgressMeter";

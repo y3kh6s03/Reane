@@ -11,6 +11,7 @@
   left: 0;
   background: rgba($baseColor, $alpha: .8);
   transition: all 1s ease-in-out;
+  z-index: 99999;
 
   .skillModal {
     width: 90%;

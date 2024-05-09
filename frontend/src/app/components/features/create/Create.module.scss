@@ -1,1 +1,110 @@
 @use "@/styles/_variables.scss" as *;
+
+.container {
+  width: 100%;
+  height: 100vh;
+  display: grid;
+  grid-template-rows: .5fr 1fr 1fr 7fr;
+  gap: 1rem;
+  padding: 5rem 0;
+  place-items: center;
+  position: relative;
+
+  @include mq(lg) {
+    width: calc(100vw - 36rem);
+    padding-top: 2rem;
+    margin: 0 auto;
+    grid-template-rows: 1fr 5fr;
+    gap: 1.5rem;
+  }
+
+  & .title {
+    font-size: 1.5rem;
+    justify-self: flex-start;
+
+    @include mq(lg){
+      display: none;
+    }
+  }
+
+  & .authDetail_container{
+    justify-self: flex-start;
+
+    @include mq(lg){
+      display: none;
+    }
+  }
+
+  & .goalInput_container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+
+    @include mq(lg){
+      position: relative;
+    }
+
+    & .goalInput_label {
+      font-family: var(--font-en);
+      margin-bottom: .5rem;
+    }
+
+    & .goalInput_input {
+      max-width: 350px;
+      color: $baseColor;
+      background-color: white;
+      height: 3rem;
+      border-radius: 10px;
+      padding: 0 1rem;
+    }
+
+    & .create_button {
+      width: 6rem;
+      aspect-ratio: 2/1;
+      border-radius: 10px;
+      position: absolute;
+      bottom: -2rem;
+      right: .5rem;
+      background-color: $green;
+      font-family: var(--font-en);
+
+      @include mq(lg){
+        right: 0;
+        bottom: 0;
+      }
+
+      &:hover {
+        background-color: darken($green, 90%);
+      }
+    }
+
+  }
+
+  & .chart_container {
+    width: 100%;
+    aspect-ratio: 1/1;
+    position: relative;
+    display: flex;
+    justify-content: center;
+
+    @include mq(sm) {
+      width: calc((100vh / 9) * 7 - 7rem);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    @include mq(lg) {
+      width: calc((100vh / 6) * 5 - 3rem);
+    }
+
+    & .button_container {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 100;
+    }
+  }
+
+}

@@ -11,8 +11,6 @@ interface ChartData {
 
 export default function Chart({ chartData }: ChartData) {
 
-  // const skills = ['ベンチ100kg', 'RUN100km', '食事制限', '生活習慣', 'デッドリフト300kg', 'スクワット100', '体幹', '腕立て', 'メンタル', 'コネクション', 'メンテナンス', 'リフレッシュ'];
-
   const skillLength = chartData.skills.length;
   const [rad, setRad] = useState<number>();
   const [r, setR] = useState<number>();

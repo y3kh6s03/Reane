@@ -32,13 +32,14 @@ export function ReferencesButton() {
   )
 }
 
-export function ModalToggleButton({ setIsModal }: ModalToggleButtonProps) {
+export function AddSkillButton({ setIsModal }: ModalToggleButtonProps) {
   const toggleModal = () => {
     setIsModal((prev: boolean) => !prev);
   }
   return (
-    <button type="button" onClick={() => { toggleModal() }}>
+    <button className={styles.addSkill} type="button" onClick={() => { toggleModal() }}>
       +
+      <span>スキル追加</span>
     </button>
   )
 }

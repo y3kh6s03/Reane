@@ -1,25 +1,25 @@
 import { Dispatch, SetStateAction, useState } from "react";
-import { addSkill } from "@/store/AddSkillsSlice";
+import { addSkill } from "@/store/CreateChartSlice";
 import { useAppDispatch } from "@/store/hooks";
-import styles from "./Modal.module.scss";
+import styles from "./styles/SkillInput.module.scss";
 
 type SkillInputModalProps = {
-  setIsModal: Dispatch<SetStateAction<boolean>>;
+  setIsSkillModal: Dispatch<SetStateAction<boolean>>;
 };
 
-export default function SkillInputModal({setIsModal }:SkillInputModalProps) {
+export default function SkillInputModal({ setIsSkillModal }: SkillInputModalProps) {
   const [text, setText] = useState('');
 
   const dispatch = useAppDispatch();
 
   const cancelHandler = () => {
-    setIsModal(prev => !prev)
+    setIsSkillModal(prev => !prev)
   }
 
   const formSubmitHandler = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    if(text!==''){
-      dispatch(addSkill(text));
+    if (text !== '') {
+      dispatch(addSkill({skillName: text, actions: ['']}));
     }
     cancelHandler();
   }

@@ -1,6 +1,6 @@
 "use client"
 
-import ChartIndex from "@/app/components/features/chartView/Index";
+import ChartIndex from "@/app/features/chartView/Index";
 import { useAppSellector } from "@/store/hooks";
 import { SessionProvider } from "next-auth/react";
 

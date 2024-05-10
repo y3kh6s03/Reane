@@ -5,8 +5,8 @@ import Reach from "./Reach";
 
 import ProgressMeter from "./ProgressMeter";
 import ChartDisp from "./ChartDisp";
-import Chart from "../../elements/chart/Chart";
-import Button from "../../elements/button/Button";
+import Chart from "../../components/elements/chart/Chart";
+import Button from "../../components/elements/button/Button";
 
 interface ChartState {
   chartData: {

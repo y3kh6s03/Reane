@@ -43,10 +43,13 @@
           width: 6rem;
           aspect-ratio: 2/1;
           border-radius: 10px;
+          font-weight: bold;
+
         }
 
         &_ok {
           background-color: $green;
+
           &:hover {
             background-color: lighten($green, 10%);
           }
@@ -54,6 +57,7 @@
 
         &_cancel {
           background-color: $alertRed;
+
           &:hover {
             background-color: lighten(#FF3700, 10%);
           }

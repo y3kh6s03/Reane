@@ -1,5 +1,5 @@
 import { auth } from "@/auth";
-import CreateIndex from "../components/features/create/Index";
+import CreateIndex from "../features/create/Index";
 
 export default async function Create() {
   const session = await auth();

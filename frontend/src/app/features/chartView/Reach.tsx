@@ -4,8 +4,8 @@ import Link from "next/link";
 import Image from "next/image";
 import { useSession } from "next-auth/react";
 import styles from "./styles/reach.module.scss";
-import { ReferencesButton } from "../../elements/button/Button";
-import AuthDetail from "../../elements/authDetail/AuthDetail";
+import { ReferencesButton } from "../../components/elements/button/Button";
+import AuthDetail from "../../components/elements/authDetail/AuthDetail";
 
 interface ReachData {
   reachData: {

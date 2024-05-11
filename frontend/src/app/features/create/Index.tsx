@@ -4,6 +4,7 @@
 
 import React, { useState } from "react";
 import { useAppSellector } from "@/store/hooks";
+import { AddAction } from "@/store/CreateChartSlice";
 import AuthDetail from "../../components/elements/authDetail/AuthDetail";
 
 import styles from "./Create.module.scss";
@@ -12,7 +13,7 @@ import SkillInputModal from "../../components/elements/Modal/SkillInputModal";
 import Chart from "../../components/elements/chart/Chart";
 import SkillInputModalContainer from "../../components/utils/SkillInputModal";
 import ActionInputModalContainer from "../../components/utils/ActionInputModal";
-import ActionInputModal, { AddAction } from "../../components/elements/Modal/ActionInputModal";
+import ActionInputModal from "../../components/elements/Modal/ActionInputModal";
 
 interface UserData {
   userData: {

@@ -1,3 +1,4 @@
+/* eslint-disable no-param-reassign */
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 
 export interface CreateChartState {
@@ -6,9 +7,13 @@ export interface CreateChartState {
   }
 }
 
+export interface AddAction {
+  id: number,
+  name: string,
+}
 interface AddChartPayload {
   skillName: string;
-  actions: string[];
+  actions?: AddAction[];
 }
 
 const initialState: CreateChartState = {
@@ -23,12 +28,17 @@ const createChartSlice = createSlice({
   initialState,
   reducers: {
     addSkill(state: CreateChartState, action: PayloadAction<AddChartPayload>) {
+      const { skillName } = action.payload;
+      state.createChartStates[skillName] = [''];
+    },
+    addActions(state: CreateChartState, action: PayloadAction<AddChartPayload>) {
       const { skillName, actions } = action.payload;
-      // eslint-disable-next-line no-param-reassign
-      state.createChartStates[skillName] = actions;
+      const actionNames = actions?.map((actionData)=>actionData.name)
+      const currentActions = [...state.createChartStates[skillName]] || [''];
+      state.createChartStates[skillName] = [...currentActions, ...(actionNames || [''])]
     }
   },
 })
 
-export const { addSkill } = createChartSlice.actions;
+export const { addSkill, addActions } = createChartSlice.actions;
 export default createChartSlice.reducer;

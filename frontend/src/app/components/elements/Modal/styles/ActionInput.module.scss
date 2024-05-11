@@ -43,6 +43,19 @@
       }
     }
 
+    & .action_container{
+      margin-bottom: 1rem;
+
+      & .action{
+        margin-bottom: 0;
+
+        &_name_container{
+          height: 5rem;
+          overflow: scroll;
+        }
+      }
+    }
+
     & .addAction_container{
       height: 6rem;
       overflow: scroll;

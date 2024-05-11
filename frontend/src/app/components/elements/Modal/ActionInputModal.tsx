@@ -1,4 +1,6 @@
 import { ChangeEvent, Dispatch, FormEvent, SetStateAction } from "react";
+import { useAppDispatch } from "@/store/hooks";
+import { AddAction, addActions } from "@/store/CreateChartSlice";
 import styles from "./styles/ActionInput.module.scss"
 
 interface ActionInputProps {
@@ -9,18 +11,17 @@ interface ActionInputProps {
     setAddActions: Dispatch<SetStateAction<AddAction[]>>,
     inputAction: string,
     setInputAction: Dispatch<SetStateAction<string>>,
-    addedActions?: {[key:string]:string[]}
+    addedActions?: { [key: string]: string[] }
   }
 };
 
-export interface AddAction {
-  id: number,
-  name: string,
-}
-
 export default function ActionInputModal({ actionData }: ActionInputProps) {
 
+  const dispatch = useAppDispatch();
+
   const test = () => {
+    dispatch(addActions({ skillName: actionData.skillName, actions: actionData.addActions }))
+    actionData.setAddActions([])
     actionData.setIsActionModal((prev) => !prev);
   }
 
@@ -54,7 +55,6 @@ export default function ActionInputModal({ actionData }: ActionInputProps) {
     })
   }
 
-
   return (
     <div className={styles.wrapper}>
       <div className={styles.container}>
@@ -69,15 +69,24 @@ export default function ActionInputModal({ actionData }: ActionInputProps) {
           </span>
         </h3>
 
-        <h3 className={styles.action}>
-          ACTION
-          <span className={styles.action_name}>
-            {actionData.addedActions
-              ? actionData.addedActions[actionData.skillName]
-              : ''
+        <div className={styles.action_container}>
+          <h3 className={styles.action}>
+            ACTION
+          </h3>
+          <ul className={styles.action_name_container}>
+            {
+              actionData.addedActions
+                ?
+                actionData.addedActions[actionData.skillName].map((action) =>
+                  <li key={action} className={styles.action_name}>
+                    {action}
+                  </li>
+                )
+                :
+                ''
             }
-          </span>
-        </h3>
+          </ul>
+        </div>
 
 
         <h3 className={styles.addAction}>
@@ -122,6 +131,6 @@ export default function ActionInputModal({ actionData }: ActionInputProps) {
           </button>
         </div>
       </div>
-    </div>
+    </div >
   )
 }

@@ -15,7 +15,7 @@ interface ChartState {
     userName: string,
     days: number,
     reachName: string,
-    skills: string[],
+    skills: { [key: string]: string[] },
     actionCount: number,
     executedActionCount: number,
     createdAt: string,
@@ -56,7 +56,7 @@ export default function ChartIndex({ chartData }: ChartState) {
       <div className={styles.authDetail_container}>
         <AuthDetail userData={userData} />
       </div>
-        <Reach reachData={reachData} />
+      <Reach reachData={reachData} />
       <div className={styles.skills_wrapper}>
         <Chart chartData={skillDatas} />
         <ProgressMeter progressData={progressData} />

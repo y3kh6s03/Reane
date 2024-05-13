@@ -6,7 +6,7 @@ users
 |    | email  | string(100)     |      |         |    |        |      | google email     |
 |    | image  | string(255)     | ◯    |         |    |        |      |                  |
 
-goals
+goal
 | PK | COLUMN          | TYPE            | NULL | DEFAULT | FK | UNIQUE | AUTO | COMMENT     |
 | ◯  | id              | unsignedInteger |      |         |    |        | ◯    |             |
 |    | name            | string(50)      |      |         |    | ◯      |      | reach title |

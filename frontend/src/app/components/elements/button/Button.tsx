@@ -4,7 +4,7 @@ import { Dispatch, SetStateAction } from "react";
 import styles from "./Button.module.scss"
 
 type ButtonName = {
-  buttonName: 'like' | 'favorite' | 'create';
+  buttonName: 'like' | 'favorite' | 'create' | 'delete';
 }
 
 type ModalToggleButtonProps = {
@@ -13,7 +13,7 @@ type ModalToggleButtonProps = {
 
 export default function Button({ buttonName }: ButtonName) {
   return (
-    <button className={styles.likeButton} type="button">
+    <button className={styles.button} type="button">
       <div className={styles.icon_container}>
         <Image src={`/${buttonName}.svg`} fill sizes="100%" alt={`${buttonName}`} />
       </div>
@@ -21,11 +21,15 @@ export default function Button({ buttonName }: ButtonName) {
   )
 }
 
-export function ReferencesButton() {
+export function JournalButton() {
   return (
-    <Link className={styles.review_link} href='/'>
-      振り返り
-      <div className={styles.review_link_inner}>
+    <Link className={styles.journal_link} href='/'>
+      <div className={styles.title_container}>
+        <span>
+          振り返り
+        </span>
+      </div>
+      <div className={styles.journal_link_inner}>
         <Image src='/arrow.svg' fill sizes="100%" alt="arrow" />
       </div>
     </Link>

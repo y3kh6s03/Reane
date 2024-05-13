@@ -4,7 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { useSession } from "next-auth/react";
 import styles from "./styles/reach.module.scss";
-import { ReferencesButton } from "../../components/elements/button/Button";
+import { JournalButton } from "../../components/elements/button/Button";
 import AuthDetail from "../../components/elements/authDetail/AuthDetail";
 
 interface ReachData {
@@ -43,7 +43,7 @@ export default function Reach({ reachData }: ReachData) {
       </div>
       {
         reachData.userName === authName
-          ? <ReferencesButton />
+          ? <JournalButton />
           : <div className={styles.authDetail_container}>
             <AuthDetail userData={userData} />
           </div>

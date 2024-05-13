@@ -4,6 +4,7 @@ $gray: #938A90;
 $rGray: #C2C2C2;
 $green: #458850;
 $alertRed: #FF3700;
+$ease: cubic-bezier(.98,-0.01,.25,.99);
 
 $breakpoints: (
   'sm':'(min-width: 480px)',

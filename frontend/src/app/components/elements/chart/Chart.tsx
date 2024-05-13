@@ -1,12 +1,13 @@
 'use client'
 
-import { usePathname } from "next/navigation";
+import { useRouter, usePathname } from "next/navigation";
 import { Dispatch, SetStateAction, useEffect, useRef, useState } from "react";
+import { SkillData } from "@/store/AuthChartsSlice";
 import styles from "./chart.module.scss"
 
 interface ChartData {
   chartData: {
-    skills: {[name: string]: string[]}
+    skills: SkillData[]
     setIsActionModal?: Dispatch<SetStateAction<boolean>>;
     setSkillName?: Dispatch<SetStateAction<string>>
   },
@@ -21,9 +22,12 @@ export default function Chart({ chartData }: ChartData) {
       chartData.setSkillName(skill)
     }
   }
-  const linkRedirect = () => {
-    alert('リンクリダイレクト');
+
+  const router = useRouter();
+  const skillAndActionRedirect = (skillName: string) => {
+    router.push(`/skillAndAction/${skillName}`);
   }
+
   const skillLength = Object.keys(chartData.skills).length;
   const [rad, setRad] = useState<number>();
   const [r, setR] = useState<number>();
@@ -49,7 +53,8 @@ export default function Chart({ chartData }: ChartData) {
       className={styles.skills_container}
     >
       {
-        Object.entries(chartData.skills).map((val,index) => {
+        Object.entries(chartData.skills).map((val, index) => {
+          const skillName = Object.entries(val[1])[0][0]
           const y = rad && radOffset && r
             ? Math.sin(rad * index + radOffset) * r + r
             : 0;
@@ -61,26 +66,26 @@ export default function Chart({ chartData }: ChartData) {
               ref={skillsInner}
               className={styles.skills_inner}
               style={{ left: x, top: y, backgroundColor: pathName === 'create' ? "gray" : '' }}
-              key={val[0]}
+              key={skillName}
               role="button"
               tabIndex={0}
               onClick={pathName === 'create'
-                ? () => { modalOpen(val[0]) }
-                : linkRedirect}
+                ? () => { modalOpen(skillName) }
+                : () => { skillAndActionRedirect(skillName) }
+              }
               onKeyDown={(event) => {
                 if (event.key === 'Enter') {
-                  if (pathName === 'create') {
-                    modalOpen(val[0]);
-                  } else {
-                    linkRedirect();
-                  }
+                  const actionToPerform = pathName === 'create'
+                    ? () => modalOpen(skillName)
+                    : () => { skillAndActionRedirect(skillName) }
+                  actionToPerform();
                 }
               }}
             >
               <span
                 className={styles.skills_inner_name}
               >
-                {val[0]}
+                {Object.entries(val[1])[0][0]}
               </span>
             </div>
           )

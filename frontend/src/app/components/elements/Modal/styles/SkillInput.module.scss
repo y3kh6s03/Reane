@@ -10,7 +10,7 @@
   top: 0;
   left: 0;
   background: rgba($baseColor, $alpha: .8);
-  transition: all 1s ease-in-out;
+  transition: all 1s $ease;
   z-index: 99999;
 
   .skillModal {

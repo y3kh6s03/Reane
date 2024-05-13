@@ -1,5 +1,6 @@
 import AuthDetail from "@/app/components/elements/authDetail/AuthDetail";
 import { useSession } from "next-auth/react";
+import { ChartData } from "@/store/AuthChartsSlice";
 import styles from "./styles/ChartView.module.scss";
 import Reach from "./Reach";
 
@@ -8,23 +9,14 @@ import ChartDisp from "./ChartDisp";
 import Chart from "../../components/elements/chart/Chart";
 import Button from "../../components/elements/button/Button";
 
-interface ChartState {
-  chartData: {
-    id: number,
-    userImage: string,
-    userName: string,
-    days: number,
-    reachName: string,
-    skills: { [key: string]: string[] },
-    actionCount: number,
-    executedActionCount: number,
-    createdAt: string,
-  }
+interface ChartProps {
+  chartData: ChartData
 }
 
-export default function ChartIndex({ chartData }: ChartState) {
+export default function ChartIndex({ chartData }: ChartProps) {
   const { data: session } = useSession();
   const authName = session?.user?.name;
+
   const userData = {
     userName: chartData.userName,
     userImage: chartData.userImage

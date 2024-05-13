@@ -17,6 +17,6 @@
     font-family: var(--font-en);
     font-weight: bold;
     color: $red;
-    transition: all .05s ease-in-out;
+    transition: all .05s $ease;
   }
 }

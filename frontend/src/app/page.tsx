@@ -1,8 +1,8 @@
-import HomeIndex from "./features/home/Index";
+import MyChart from "./mypage/MyChart";
 
 
 export default function Home() {
   return (
-    <HomeIndex />
+    <MyChart />
   );
 }

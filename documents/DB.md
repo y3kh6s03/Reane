@@ -1,63 +1,73 @@
 # テーブル定義書
 users
-| PK | COLUMN | TYPE            | NULL | DEFAULT | FK | UNIQUE | AUTO | COMMENT          |
-| ◯  | id     | unsignedInteger |      |         |    |        | ◯    |                  |
-|    | name   | string(20)      | ◯    |         |    |        |      | null=google-name |
-|    | email  | string(100)     |      |         |    |        |      | google email     |
-|    | image  | string(255)     | ◯    |         |    |        |      |                  |
+| PK  | COLUMN | TYPE            | NULL | DEFAULT | FK  | UNIQUE | AUTO | COMMENT          |
+| --- | ------ | --------------- | ---- | ------- | --- | ------ | ---- | ---------------- |
+| ◯   | id     | unsignedInteger |      |         |     |        | ◯    |                  |
+|     | name   | string(20)      | ◯    |         |     |        |      | null=google-name |
+|     | email  | string(100)     |      |         |     |        |      | google email     |
+|     | image  | string(255)     | ◯    |         |     |        |      |                  |
+
 
 goal
-| PK | COLUMN          | TYPE            | NULL | DEFAULT | FK | UNIQUE | AUTO | COMMENT     |
-| ◯  | id              | unsignedInteger |      |         |    |        | ◯    |             |
-|    | name            | string(50)      |      |         |    | ◯      |      | reach title |
-|    | user_id         | unsignedInteger |      |         | ◯  |        |      | users table |
-|    | total_views     | unsignedInteger |      | 0       |    |        |      | view count  |
-|    | total_citations | unsignedInteger |      | 0       |    |        |      | 引用された数      |
+| PK  | COLUMN          | TYPE            | NULL | DEFAULT | FK  | UNIQUE | AUTO | COMMENT      |
+| --- | --------------- | --------------- | ---- | ------- | --- | ------ | ---- | ------------ |
+| ◯   | id              | unsignedInteger |      |         |     |        | ◯    |              |
+|     | name            | string(50)      |      |         |     | ◯      |      | reach title  |
+|     | user_id         | unsignedInteger |      |         | ◯   |        |      | users table  |
+|     | total_views     | unsignedInteger |      | 0       |     |        |      | view count   |
+|     | total_citations | unsignedInteger |      | 0       |     |        |      | 引用された数 |
 
 comments
-| PK | COLUMN  | TYPE            | NULL | DEFAULT | FK | UNIQUE | AUTO | COMMENT     |
-| ◯  | id      | unsignedInteger |      |         |    |        | ◯    |             |
-|    | user_id | unsignedInteger |      |         | ◯  |        |      | users table |
-|    | goal_id | unsignedInteger |      |         | ◯  |        |      | goals table |
-|    | comment | text            |      |         |    |        |      | comment     |
+| PK  | COLUMN  | TYPE            | NULL | DEFAULT | FK  | UNIQUE | AUTO | COMMENT     |
+| --- | ------- | --------------- | ---- | ------- | --- | ------ | ---- | ----------- |
+| ◯   | id      | unsignedInteger |      |         |     |        | ◯    |             |
+|     | user_id | unsignedInteger |      |         | ◯   |        |      | users table |
+|     | goal_id | unsignedInteger |      |         | ◯   |        |      | goals table |
+|     | comment | text            |      |         |     |        |      | comment     |
 
 skills
-| PK | COLUMN  | TYPE            | NULL | DEFAULT | FK | UNIQUE | AUTO | COMMENT     |
-| ◯  | id      | unsignedInteger |      |         |    |        | ◯    |             |
-|    | name    | string(50)      |      |         |    |        |      | skill name  |
-|    | goal_id | unsignedInteger |      |         | ◯  |        |      | goals table |
+| PK  | COLUMN  | TYPE            | NULL | DEFAULT | FK  | UNIQUE | AUTO | COMMENT     |
+| --- | ------- | --------------- | ---- | ------- | --- | ------ | ---- | ----------- |
+| ◯   | id      | unsignedInteger |      |         |     |        | ◯    |             |
+|     | name    | string(50)      |      |         |     |        |      | skill name  |
+|     | goal_id | unsignedInteger |      |         | ◯   |        |      | goals table |
 
 actions
-| PK | COLUMN   | TYPE            | NULL | DEFAULT | FK | UNIQUE | AUTO | COMMENT     |
-| ◯  | id       | unsignedInteger |      |         |    |        | ◯    |             |
-|    | name     | string(50)      |      |         |    |        |      | action name |
-|    | skill_id | unsignedInteger |      |         | ◯  |        |      | skill table |
+| PK  | COLUMN   | TYPE            | NULL | DEFAULT | FK  | UNIQUE | AUTO | COMMENT     |
+| --- | -------- | --------------- | ---- | ------- | --- | ------ | ---- | ----------- |
+| ◯   | id       | unsignedInteger |      |         |     |        | ◯    |             |
+|     | name     | string(50)      |      |         |     |        |      | action name |
+|     | skill_id | unsignedInteger |      |         | ◯   |        |      | skill table |
 
 favorite_goals
-| PK | COLUMN  | TYPE            | NULL | DEFAULT | FK | UNIQUE | AUTO | COMMENT     |
-| ◯  | id      | unsignedInteger |      |         |    |        | ◯    |             |
-|    | user_id | unsignedInteger |      |         | ◯  |        |      | users name  |
-|    | goal_id | unsignedInteger |      |         | ◯  |        |      | goals table |
+| PK  | COLUMN  | TYPE            | NULL | DEFAULT | FK  | UNIQUE | AUTO | COMMENT     |
+| --- | ------- | --------------- | ---- | ------- | --- | ------ | ---- | ----------- |
+| ◯   | id      | unsignedInteger |      |         |     |        | ◯    |             |
+|     | user_id | unsignedInteger |      |         | ◯   |        |      | users name  |
+|     | goal_id | unsignedInteger |      |         | ◯   |        |      | goals table |
 
 favorite_users
-| PK | COLUMN           | TYPE            | NULL | DEFAULT | FK | UNIQUE | AUTO | COMMENT     |
-| ◯  | id               | unsignedInteger |      |         |    |        | ◯    |             |
-|    | user_id          | unsignedInteger |      |         | ◯  |        |      | users table |
-|    | favorite_user_id | unsignedInteger |      |         | ◯  |        |      | users table |
+| PK  | COLUMN           | TYPE            | NULL | DEFAULT | FK  | UNIQUE | AUTO | COMMENT     |
+| --- | ---------------- | --------------- | ---- | ------- | --- | ------ | ---- | ----------- |
+| ◯   | id               | unsignedInteger |      |         |     |        | ◯    |             |
+|     | user_id          | unsignedInteger |      |         | ◯   |        |      | users table |
+|     | favorite_user_id | unsignedInteger |      |         | ◯   |        |      | users table |
 
 references
-| PK | COLUMN    | TYPE            | NULL | DEFAULT  | FK | UNIQUE | AUTO | COMMENT        |
-| ◯  | id        | unsignedInteger |      |          |    |        | ◯    |                |
-|    | user_id   | unsignedInteger |      |          | ◯  |        |      | users table    |
-|    | date      | date            |      |          |    |        |      |                |
-|    | exec_time | time            | ◯    | 00:00:00 |    |        |      |                |
-|    | memo      | text            |      |          |    |        |      | furikaeri memo |
+| PK  | COLUMN    | TYPE            | NULL | DEFAULT  | FK  | UNIQUE | AUTO | COMMENT        |
+| --- | --------- | --------------- | ---- | -------- | --- | ------ | ---- | -------------- |
+| ◯   | id        | unsignedInteger |      |          |     |        | ◯    |                |
+|     | user_id   | unsignedInteger |      |          | ◯   |        |      | users table    |
+|     | date      | date            |      |          |     |        |      |                |
+|     | exec_time | time            | ◯    | 00:00:00 |     |        |      |                |
+|     | memo      | text            |      |          |     |        |      | furikaeri memo |
 
 action_references
-| PK | COLUMN       | TYPE            | NULL | DEFAULT | FK | UNIQUE | AUTO | COMMENT          |
-| ◯  | id           | unsignedInteger |      |         |    |        | ◯    |                  |
-|    | action_id    | unsignedInteger |      |         | ◯  |        |      | actions table    |
-|    | reference_id | unsignedInteger |      |         | ◯  |        |      | references table |
+| PK  | COLUMN       | TYPE            | NULL | DEFAULT | FK  | UNIQUE | AUTO | COMMENT          |
+| --- | ------------ | --------------- | ---- | ------- | --- | ------ | ---- | ---------------- |
+| ◯   | id           | unsignedInteger |      |         |     |        | ◯    |                  |
+|     | action_id    | unsignedInteger |      |         | ◯   |        |      | actions table    |
+|     | reference_id | unsignedInteger |      |         | ◯   |        |      | references table |
 
 
 ## エンティティ

@@ -9,24 +9,27 @@ import styles from "./styles/SkillAndAction.module.scss";
 import Actions from "./Actions";
 
 export default function SkillAndActionIndex() {
+  const authChartData = useAppSellector((state) => state.authChart.authChartData);
+  const userChartData = useAppSellector((state) => state.usersChart.userChartData);
+  const { data: session } = useSession();
+  const authData = session?.user?.name;
+  const pathName = usePathname();
+  const createrName = decodeURIComponent(pathName.substring(1)).split('/')[1];
+  const SkillAndActioinData = authData === createrName ? authChartData : userChartData;
 
   // ユーザー情報表示コンポーネント用props取得処理
-  const { data: session } = useSession();
   const userData = {
-    userName: session?.user?.name || '',
-    userImage: session?.user?.image || ''
+    userName: SkillAndActioinData.userName,
+    userImage: SkillAndActioinData.userImage,
   }
-  // スキルネームコンポーネント用props取得処理
-  const pathName = usePathname();
-  const skillName = decodeURIComponent(pathName.substring(1)).split('/')[1];
 
+
+  // スキルネームコンポーネント用props取得処理
   // アクション一覧コンポーネント用props取得処理
-  const authChartData = useAppSellector((state) => state.authChart.authChartData)
-  const skillsRowData = authChartData.skills;
+  const skillName = decodeURIComponent(pathName.substring(1)).split('/')[2];
+  const skillsRowData = SkillAndActioinData.skills;
   const skillDatas = skillsRowData.find(skill => Object.keys(skill)[0] === skillName);
   const actionData = skillDatas && skillDatas[skillName];
-
-
 
   return (
     <div className={styles.container}>

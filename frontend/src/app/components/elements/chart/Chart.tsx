@@ -7,6 +7,7 @@ import styles from "./chart.module.scss"
 
 interface ChartData {
   chartData: {
+    userName: string,
     skills: SkillData[]
     setIsActionModal?: Dispatch<SetStateAction<boolean>>;
     setSkillName?: Dispatch<SetStateAction<string>>
@@ -25,7 +26,7 @@ export default function Chart({ chartData }: ChartData) {
 
   const router = useRouter();
   const skillAndActionRedirect = (skillName: string) => {
-    router.push(`/skillAndAction/${skillName}`);
+    router.push(`/skillAndAction/${chartData.userName}/${skillName}`);
   }
 
   const skillLength = Object.keys(chartData.skills).length;

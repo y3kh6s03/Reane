@@ -13,8 +13,8 @@ export interface SkillData {
 
 export type ChartData = {
   id: number;
-  userImage: string;
   userName: string;
+  userImage: string;
   days: number;
   reachName: string;
   skills: SkillData[];

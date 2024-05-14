@@ -1,6 +1,7 @@
 import { ChangeEvent, Dispatch, FormEvent, SetStateAction } from "react";
 import { useAppDispatch } from "@/store/hooks";
 import { AddAction, addActions } from "@/store/CreateChartSlice";
+import { SkillData } from "@/store/AuthChartsSlice";
 import styles from "./styles/ActionInput.module.scss"
 
 interface ActionInputProps {
@@ -11,7 +12,7 @@ interface ActionInputProps {
     setAddActions: Dispatch<SetStateAction<AddAction[]>>,
     inputAction: string,
     setInputAction: Dispatch<SetStateAction<string>>,
-    addedActions?: { [key: string]: string[] }
+    addedActions?: SkillData[]
   }
 };
 
@@ -20,7 +21,7 @@ export default function ActionInputModal({ actionData }: ActionInputProps) {
   const dispatch = useAppDispatch();
 
   const test = () => {
-    dispatch(addActions({ skillName: actionData.skillName, actions: actionData.addActions }))
+    dispatch(addActions({ skillName: actionData.skillName, actionDatas: actionData.addActions }))
     actionData.setAddActions([])
     actionData.setIsActionModal((prev) => !prev);
   }
@@ -55,6 +56,10 @@ export default function ActionInputModal({ actionData }: ActionInputProps) {
     })
   }
 
+  const addedActionDatas = actionData.addedActions?.find(addedAction => actionData.skillName in addedAction)
+
+  const actions = addedActionDatas && addedActionDatas[actionData.skillName]
+
   return (
     <div className={styles.wrapper}>
       <div className={styles.container}>
@@ -75,11 +80,11 @@ export default function ActionInputModal({ actionData }: ActionInputProps) {
           </h3>
           <ul className={styles.action_name_container}>
             {
-              actionData.addedActions
+              actions
                 ?
-                actionData.addedActions[actionData.skillName].map((action) =>
-                  <li key={action} className={styles.action_name}>
-                    {action}
+                actions.map((action) =>
+                  <li key={Object.keys(action)[0]} className={styles.action_name}>
+                    {Object.keys(action)[0]}
                   </li>
                 )
                 :

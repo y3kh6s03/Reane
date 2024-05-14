@@ -43,7 +43,7 @@ export default function Reach({ reachData }: ReachData) {
       </div>
       {
         reachData.userName === authName
-          ? <JournalButton />
+          ? <JournalButton journal={reachData.name}/>
           : <div className={styles.authDetail_container}>
             <AuthDetail userData={userData} />
           </div>

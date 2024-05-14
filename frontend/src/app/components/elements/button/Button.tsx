@@ -7,9 +7,16 @@ type ButtonName = {
   buttonName: 'like' | 'favorite' | 'create' | 'delete';
 }
 
-type ModalToggleButtonProps = {
-  setIsModal: Dispatch<SetStateAction<boolean>>;
+export type ModalToggleProps = {
+  modalToggleProps: {
+    setIsModal: Dispatch<SetStateAction<boolean>>,
+    toggleName: string,
+  }
 };
+
+interface JournalProps {
+  journal: string
+}
 
 export default function Button({ buttonName }: ButtonName) {
   return (
@@ -21,9 +28,9 @@ export default function Button({ buttonName }: ButtonName) {
   )
 }
 
-export function JournalButton() {
+export function JournalButton({ journal }: JournalProps) {
   return (
-    <Link className={styles.journal_link} href='/'>
+    <Link className={styles.journal_link} href={`http://localhost:3000/journal/${journal}`}>
       <div className={styles.title_container}>
         <span>
           振り返り
@@ -36,14 +43,14 @@ export function JournalButton() {
   )
 }
 
-export function AddSkillButton({ setIsModal }: ModalToggleButtonProps) {
+export function ModalToggleButton({ modalToggleProps }: ModalToggleProps) {
   const toggleModal = () => {
-    setIsModal((prev: boolean) => !prev);
+    modalToggleProps.setIsModal((prev: boolean) => !prev);
   }
   return (
     <button className={styles.addSkill} type="button" onClick={() => { toggleModal() }}>
       +
-      <span>スキル追加</span>
+      <span>{modalToggleProps.toggleName}追加</span>
     </button>
   )
 }

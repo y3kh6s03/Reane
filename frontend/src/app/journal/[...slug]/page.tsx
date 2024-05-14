@@ -1,7 +1,7 @@
+import JournalIndex from "@/app/features/journal/Index";
+
 export default function Journal() {
   return (
-    <h1>
-      Journalページだよーーー
-    </h1>
+      <JournalIndex/>
   )
 }

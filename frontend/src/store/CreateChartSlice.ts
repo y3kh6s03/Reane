@@ -1,41 +1,50 @@
 /* eslint-disable no-param-reassign */
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
+import { ChartData } from "./AuthChartsSlice";
 
-export interface CreateChartState {
-  createChartStates: {
-    [key: string]: string[];
-  }
-}
-
+export type CreateChartProps = Omit<ChartData, 'id' | 'createdAt'>
 export interface AddAction {
   id: number,
   name: string,
 }
 interface AddChartPayload {
   skillName: string;
-  actions?: AddAction[];
+  actionDatas?: AddAction[];
 }
 
-const initialState: CreateChartState = {
-  createChartStates: {
-    test: ['Redux'],
-    test2: ['useMemo']
-  }
+const initialState: CreateChartProps = {
+  userName: '',
+  userImage: '',
+  days: 0,
+  reachName: '',
+  // skills: [
+  //   { '': [] }
+  // ],
+  skills: [],
+  actionCount: 0,
+  executedActionCount: 0,
 }
 
 const createChartSlice = createSlice({
   name: "createChart",
   initialState,
   reducers: {
-    addSkill(state: CreateChartState, action: PayloadAction<AddChartPayload>) {
+    addSkill(state, action: PayloadAction<AddChartPayload>) {
       const { skillName } = action.payload;
-      state.createChartStates[skillName] = [''];
+      state.skills.push({ [skillName]: [] })
     },
-    addActions(state: CreateChartState, action: PayloadAction<AddChartPayload>) {
-      const { skillName, actions } = action.payload;
-      const actionNames = actions?.map((actionData)=>actionData.name)
-      const currentActions = [...state.createChartStates[skillName]] || [''];
-      state.createChartStates[skillName] = [...currentActions, ...(actionNames || [''])]
+    addActions(state, action: PayloadAction<AddChartPayload>) {
+      const { skillName, actionDatas } = action.payload;
+      const actions = actionDatas?.map(actionData => actionData.name);
+      const insertActions = actions?.map((actionName) => ({ [actionName]: 0 }))
+      const skillIndex = state.skills.findIndex(skill => skillName in skill)
+      const currentActions = [...state.skills[skillIndex][skillName]]
+      if (skillIndex !== -1 && insertActions) {
+        state.skills[skillIndex][skillName] = [...currentActions, ...insertActions]
+      }
+      // const actionNames = actions?.map((actionData) => actionData.name)
+      // const currentActions = [...state.createChartStates[skillName]] || [''];
+      // state.createChartStates[skillName] = [...currentActions, ...(actionNames || [''])]
     }
   },
 })

@@ -8,7 +8,7 @@ import { AddAction } from "@/store/CreateChartSlice";
 import AuthDetail from "../../components/elements/authDetail/AuthDetail";
 
 import styles from "./Create.module.scss";
-import { AddSkillButton } from "../../components/elements/button/Button";
+import { ModalToggleButton } from "../../components/elements/button/Button";
 import SkillInputModal from "../../components/elements/Modal/SkillInputModal";
 import Chart from "../../components/elements/chart/Chart";
 import SkillInputModalContainer from "../../components/utils/SkillInputModal";
@@ -32,7 +32,8 @@ export default function CreateIndex({ userData }: UserData) {
   const [inputAction, setInputAction] = useState<string>('');
 
   const chartData = {
-    skills: createChartStates.createChartStates,
+    userName: userData.userName,
+    skills: createChartStates.skills,
     setIsActionModal,
     setSkillName,
   };
@@ -44,7 +45,12 @@ export default function CreateIndex({ userData }: UserData) {
     setAddActions,
     inputAction,
     setInputAction,
-    addedActions: createChartStates.createChartStates
+    addedActions: createChartStates.skills
+  }
+
+  const modalToggleProps = {
+    setIsModal:setIsSkillModal,
+    toggleName:'スキル'
   }
 
   return (
@@ -71,7 +77,7 @@ export default function CreateIndex({ userData }: UserData) {
 
       <div className={styles.chart_container}>
         <div className={styles.button_container}>
-          <AddSkillButton setIsModal={setIsSkillModal} />
+          <ModalToggleButton modalToggleProps={modalToggleProps} />
         </div>
         <Chart chartData={chartData} />
       </div>

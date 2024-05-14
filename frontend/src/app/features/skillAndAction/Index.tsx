@@ -23,7 +23,6 @@ export default function SkillAndActionIndex() {
     userImage: SkillAndActioinData.userImage,
   }
 
-
   // スキルネームコンポーネント用props取得処理
   // アクション一覧コンポーネント用props取得処理
   const skillName = decodeURIComponent(pathName.substring(1)).split('/')[2];

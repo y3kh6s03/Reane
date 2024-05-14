@@ -9,8 +9,8 @@ interface UserChartState {
 const initialState: UserChartState = {
   userChartData: {
     id: 123,
-    userImage: '/defaultIcon.png',
     userName: 'rei',
+    userImage: '/defaultIcon.png',
     days: 254,
     reachName: 'ベンチプレス888kg',
     skills: [

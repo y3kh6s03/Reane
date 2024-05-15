@@ -46,6 +46,7 @@ export function JournalButton({ journal }: JournalProps) {
 export function ModalToggleButton({ modalToggleProps }: ModalToggleProps) {
   const toggleModal = () => {
     modalToggleProps.setIsModal((prev: boolean) => !prev);
+    console.log(modalToggleProps.setIsModal);
   }
   return (
     <button className={styles.addSkill} type="button" onClick={() => { toggleModal() }}>

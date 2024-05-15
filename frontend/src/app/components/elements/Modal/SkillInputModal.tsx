@@ -19,7 +19,7 @@ export default function SkillInputModal({ setIsSkillModal }: SkillInputModalProp
   const formSubmitHandler = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (text !== '') {
-      dispatch(addSkill({skillName: text, actions: ['']}));
+      dispatch(addSkill({skillName: text}));
     }
     cancelHandler();
   }

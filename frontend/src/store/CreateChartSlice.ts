@@ -42,9 +42,6 @@ const createChartSlice = createSlice({
       if (skillIndex !== -1 && insertActions) {
         state.skills[skillIndex][skillName] = [...currentActions, ...insertActions]
       }
-      // const actionNames = actions?.map((actionData) => actionData.name)
-      // const currentActions = [...state.createChartStates[skillName]] || [''];
-      // state.createChartStates[skillName] = [...currentActions, ...(actionNames || [''])]
     }
   },
 })

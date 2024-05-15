@@ -20,8 +20,6 @@
     background-color: $gray;
     border-radius: 10px;
 
-    @include mq(lg) {}
-
     & .modal_title {
       text-align: center;
       margin-bottom: 2rem;

@@ -11,8 +11,8 @@ import styles from "./Create.module.scss";
 import { ModalToggleButton } from "../../components/elements/button/Button";
 import SkillInputModal from "../../components/elements/Modal/SkillInputModal";
 import Chart from "../../components/elements/chart/Chart";
-import SkillInputModalContainer from "../../components/utils/SkillInputModal";
-import ActionInputModalContainer from "../../components/utils/ActionInputModal";
+import SkillInputModalContainer from "../../components/utils/SkillInputModalContainer";
+import ActionInputModalContainer from "../../components/utils/ActionInputModalContainer";
 import ActionInputModal from "../../components/elements/Modal/ActionInputModal";
 
 interface UserData {

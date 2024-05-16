@@ -5,6 +5,7 @@
 import React, { useState } from "react";
 import { useAppDispatch, useAppSellector } from "@/store/hooks";
 import { AddAction, addReach, initCreateChart } from "@/store/CreateChartSlice";
+import { useRouter } from "next/navigation";
 import axios from "axios";
 import AuthDetail from "../../components/elements/authDetail/AuthDetail";
 
@@ -15,6 +16,7 @@ import Chart from "../../components/elements/chart/Chart";
 import SkillInputModalContainer from "../../components/utils/SkillInputModalContainer";
 import ActionInputModalContainer from "../../components/utils/ActionInputModalContainer";
 import ActionInputModal from "../../components/elements/Modal/ActionInputModal";
+
 
 interface UserData {
   userData: {
@@ -34,6 +36,7 @@ export default function CreateIndex({ userData }: UserData) {
   const [reachName, setReachName] = useState('');
   const [addActions, setAddActions] = useState<AddAction[]>([]);
   const [inputAction, setInputAction] = useState<string>('');
+  const router = useRouter();
 
   const chartData = {
     userName: userData.userName,
@@ -77,6 +80,7 @@ export default function CreateIndex({ userData }: UserData) {
     console.log(data);
     dispatch(initCreateChart())
     setReachName('');
+    router.push('/mypage');
   }
 
   return (

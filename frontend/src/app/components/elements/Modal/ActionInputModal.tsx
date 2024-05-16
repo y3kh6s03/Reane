@@ -13,7 +13,7 @@ interface ActionInputProps {
     setAddActions: Dispatch<SetStateAction<AddAction[]>>,
     inputAction: string,
     setInputAction: Dispatch<SetStateAction<string>>,
-    addedActions?: SkillData[]
+    addedActions?: SkillData
   }
 };
 
@@ -62,7 +62,8 @@ export default function ActionInputModal({ actionData }: ActionInputProps) {
     })
   }
 
-  const addedActionDatas = actionData.addedActions?.find(addedAction => actionData.skillName in addedAction)
+  const addedActionDatas = actionData.addedActions;
+  // const addedActionDatas = actionData.addedActions?.find(addedAction => actionData.skillName in addedAction)
 
   const actions = addedActionDatas && addedActionDatas[actionData.skillName]
 
@@ -128,7 +129,7 @@ export default function ActionInputModal({ actionData }: ActionInputProps) {
         </h3>
 
         <div className={styles.button_container}>
-          <CreateAndCancelButton createAndCancelProps={{ buttonName: 'DELETE', handler: cancelHandler }} />
+          <CreateAndCancelButton createAndCancelProps={{ buttonName: 'CANCEL', handler: cancelHandler }} />
           <CreateAndCancelButton createAndCancelProps={{ buttonName: 'SAVE', handler: addActionsHandler }} />
         </div>
       </div>

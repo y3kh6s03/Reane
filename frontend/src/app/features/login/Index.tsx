@@ -7,7 +7,7 @@ import LoginForm from "./Form";
 export default async function LoginIndex() {
   const session = await auth();
   if (session?.user) {
-    redirect('/mypage')
+    redirect('/myChart')
   }
   return (
     <LoginForm />

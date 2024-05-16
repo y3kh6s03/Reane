@@ -22,7 +22,7 @@ export default function JournalIndex() {
       <ModalToggleButton modalToggleProps={modalToggleProps} />
 
       <div className={styles.searchContainer}>
-        <SearchFilter searchTitle='GOAL' searchName='WEB開発者' />
+        <SearchFilter searchTitle='Reach' searchName='WEB開発者' />
         <SearchFilter searchTitle='SKILL' searchName='フロントエンド開発' />
         <SearchFilter searchTitle='ACTION' searchName='web開発技術の向上' />
       </div>

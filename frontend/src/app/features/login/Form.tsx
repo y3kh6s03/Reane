@@ -7,7 +7,7 @@ export default function LoginForm() {
 
     "use server"
 
-    await signIn('google',{ redirectTo: "/mypage" });
+    await signIn('google',{ redirectTo: "/myChart" });
   }
 
   return (

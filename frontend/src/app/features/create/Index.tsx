@@ -80,7 +80,7 @@ export default function CreateIndex({ userData }: UserData) {
     console.log(data);
     dispatch(initCreateChart())
     setReachName('');
-    router.push('/mypage');
+    router.push('/myChart');
   }
 
   return (
@@ -92,11 +92,11 @@ export default function CreateIndex({ userData }: UserData) {
         <AuthDetail userData={userData} />
       </div>
 
-      <label className={styles.goalInput_label} htmlFor="goalName">
-        GOAL
+      <label className={styles.reachInput_label} htmlFor="reachName">
+        REACH
         <input
-          className={styles.goalInput_input}
-          name="goal_name"
+          className={styles.reachInput_input}
+          name="reach_name"
           type="text"
           placeholder="目標を入力してください"
           value={reachName}

@@ -14,7 +14,7 @@ export default function MobileNav({ props }: Props) {
   const navItems = [
     { id: 1, name: 'home' },
     { id: 2, name: 'create' },
-    { id: 3, name: 'mypage' },
+    { id: 3, name: 'myChart' },
     { id: 4, name: 'search' },
     { id: 5, name: 'setting' },
   ];
@@ -29,12 +29,12 @@ export default function MobileNav({ props }: Props) {
                 <div className={styles.image_container}>
                   <Image
                     className={styles.image_container_img}
-                    src={item.name !== 'mypage' ? `/${item.name}.svg` : props} fill sizes='100%' alt={`${item.name}`}
+                    src={item.name !== 'myChart' ? `/${item.name}.svg` : props} fill sizes='100%' alt={`${item.name}`}
                   />
                 </div>
                 <span className={styles.name}>
-                  {item.name === 'mypage'
-                    ? 'My Page'
+                  {item.name === 'myChart'
+                    ? 'My Chart'
                     : item.name.charAt(0).toUpperCase() + item.name.slice(1)
                   }
                 </span>

@@ -25,7 +25,7 @@ export default function UserCard() {
         </div>
         <div className={styles.chartdetail}>
           <span className={styles.chart_name}>
-            GOAL: ベンチプレス300
+            REACH: ベンチプレス300
           </span>
           <p className={styles.chart_description}>
             {/* データ取得処理後は、skillsを列挙していく形式に変更 */}

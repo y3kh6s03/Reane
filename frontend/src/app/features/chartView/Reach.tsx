@@ -26,7 +26,7 @@ export default function Reach({ reachData }: ReachData) {
     <div className={styles.container}>
       <div className={styles.reach}>
         <h3 className={styles.reach_title}>
-          Goal
+          REACH
           <span className={styles.reach_name}>
             {reachData.name}
           </span>

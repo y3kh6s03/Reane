@@ -1,29 +1,23 @@
 # テーブル定義書
-users
+<!-- users
 | PK  | COLUMN | TYPE            | NULL | DEFAULT | FK  | UNIQUE | AUTO | COMMENT          |
 | --- | ------ | --------------- | ---- | ------- | --- | ------ | ---- | ---------------- |
 | ◯   | id     | unsignedInteger |      |         |     |        | ◯    |                  |
 |     | name   | string(20)      | ◯    |         |     |        |      | null=google-name |
 |     | email  | string(100)     |      |         |     |        |      | google email     |
-|     | image  | string(255)     | ◯    |         |     |        |      |                  |
+|     | image  | string(255)     | ◯    |         |     |        |      |                  | --> |
 
 
 goal
-| PK  | COLUMN          | TYPE            | NULL | DEFAULT | FK  | UNIQUE | AUTO | COMMENT      |
-| --- | --------------- | --------------- | ---- | ------- | --- | ------ | ---- | ------------ |
-| ◯   | id              | unsignedInteger |      |         |     |        | ◯    |              |
-|     | name            | string(50)      |      |         |     | ◯      |      | reach title  |
-|     | user_id         | unsignedInteger |      |         | ◯   |        |      | users table  |
-|     | total_views     | unsignedInteger |      | 0       |     |        |      | view count   |
-|     | total_citations | unsignedInteger |      | 0       |     |        |      | 引用された数 |
-
-comments
-| PK  | COLUMN  | TYPE            | NULL | DEFAULT | FK  | UNIQUE | AUTO | COMMENT     |
-| --- | ------- | --------------- | ---- | ------- | --- | ------ | ---- | ----------- |
-| ◯   | id      | unsignedInteger |      |         |     |        | ◯    |             |
-|     | user_id | unsignedInteger |      |         | ◯   |        |      | users table |
-|     | goal_id | unsignedInteger |      |         | ◯   |        |      | goals table |
-|     | comment | text            |      |         |     |        |      | comment     |
+| PK  | COLUMN          | TYPE            | NULL | DEFAULT | FK  | UNIQUE | AUTO | COMMENT         |
+| --- | --------------- | --------------- | ---- | ------- | --- | ------ | ---- | --------------- |
+| ◯   | id              | unsignedInteger |      |         |     |        | ◯    |                 |
+|     | name            | string(254)     |      |         |     | ◯      |      | reach title     |
+|     | user_name       | string(254)     |      |         |     |        |      |                 |
+|     | user_email      | string(254)     |      |         |     |        |      |                 |
+|     | user_image      | text            |      |         |     |        |      |                 |
+|     | total_views     | unsignedInteger |      | 0       |     |        |      | view count      |
+|     | total_citations | unsignedInteger |      | 0       |     |        |      | citations count |
 
 skills
 | PK  | COLUMN  | TYPE            | NULL | DEFAULT | FK  | UNIQUE | AUTO | COMMENT     |
@@ -33,11 +27,21 @@ skills
 |     | goal_id | unsignedInteger |      |         | ◯   |        |      | goals table |
 
 actions
-| PK  | COLUMN   | TYPE            | NULL | DEFAULT | FK  | UNIQUE | AUTO | COMMENT     |
-| --- | -------- | --------------- | ---- | ------- | --- | ------ | ---- | ----------- |
-| ◯   | id       | unsignedInteger |      |         |     |        | ◯    |             |
-|     | name     | string(50)      |      |         |     |        |      | action name |
-|     | skill_id | unsignedInteger |      |         | ◯   |        |      | skill table |
+| PK  | COLUMN       | TYPE            | NULL | DEFAULT | FK  | UNIQUE | AUTO | COMMENT     |
+| --- | ------------ | --------------- | ---- | ------- | --- | ------ | ---- | ----------- |
+| ◯   | id           | unsignedInteger |      |         |     |        | ◯    |             |
+|     | name         | string(50)      |      |         |     |        |      | action name |
+|     | skill_id     | unsignedInteger |      |         | ◯   |        |      | skill table |
+|     | reach_id     | unsignedInteger |      |         | ◯   |        |      | reach table |
+|     | is_completed | boolean         |      | 0       |     |        |      |             |
+
+comments
+| PK  | COLUMN  | TYPE            | NULL | DEFAULT | FK  | UNIQUE | AUTO | COMMENT     |
+| --- | ------- | --------------- | ---- | ------- | --- | ------ | ---- | ----------- |
+| ◯   | id      | unsignedInteger |      |         |     |        | ◯    |             |
+|     | user_id | unsignedInteger |      |         | ◯   |        |      | users table |
+|     | goal_id | unsignedInteger |      |         | ◯   |        |      | goals table |
+|     | comment | text            |      |         |     |        |      | comment     |
 
 favorite_goals
 | PK  | COLUMN  | TYPE            | NULL | DEFAULT | FK  | UNIQUE | AUTO | COMMENT     |

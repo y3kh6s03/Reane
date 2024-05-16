@@ -21,8 +21,8 @@ services:
     volumes:
       - mysql-volume:/var/lib/mysql
     environment:
-      MYSQL_DATABASE: ${MYSQL_DATABASE}
-      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: reina
+      MYSQL_ROOT_PASSWORD: pass
     networks:
       - app-network
   frontend:

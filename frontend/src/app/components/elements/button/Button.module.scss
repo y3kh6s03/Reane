@@ -46,8 +46,9 @@
         transform: translateY(0%);
       }
     }
-    & .journal_link_inner{
-      & img{
+
+    & .journal_link_inner {
+      & img {
         transform: rotate(-90deg) translateY(10%);
       }
     }
@@ -57,9 +58,40 @@
 .addSkill {
   font-size: 3rem;
   font-weight: 0;
+  margin-bottom: 1rem;
 
   & span {
     display: block;
     font-size: .9rem;
+  }
+}
+
+.createAndCancel_button {
+  width: 6rem;
+  aspect-ratio: 2/1;
+  border-radius: 10px;
+  font-weight: bold;
+  font: 700 1rem var(--font-en);
+  transition: all .1s $ease;
+
+  &:global(.CANCEL),
+  &:global(.DELETE) {
+    background-color: $alertRed;
+
+    &:hover {
+      background-color: lighten(#FF3700, 10%);
+      transform: scale(1.1);
+    }
+  }
+
+  &:global(.CREATE),
+  &:global(.SAVE) {
+    background-color: $green;
+
+    &:hover {
+      background-color: lighten($green, 10%);
+      transform: scale(1.1);
+
+    }
   }
 }

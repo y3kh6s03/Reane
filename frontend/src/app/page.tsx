@@ -1,7 +1,7 @@
 import MyChart from "./mypage/MyChart";
 
+export default async function Home() {
 
-export default function Home() {
   return (
     <MyChart />
   );

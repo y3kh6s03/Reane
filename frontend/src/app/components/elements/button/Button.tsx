@@ -18,6 +18,13 @@ interface JournalProps {
   journal: string
 }
 
+interface CreateAndCancelProps {
+  createAndCancelProps: {
+    buttonName: 'CANCEL' | 'CREATE' | 'DELETE' | 'SAVE',
+    handler: () => void
+  }
+}
+
 export default function Button({ buttonName }: ButtonName) {
   return (
     <button className={styles.button} type="button">
@@ -52,6 +59,17 @@ export function ModalToggleButton({ modalToggleProps }: ModalToggleProps) {
     <button className={styles.addSkill} type="button" onClick={() => { toggleModal() }}>
       +
       <span>{modalToggleProps.toggleName}追加</span>
+    </button>
+  )
+}
+
+export function CreateAndCancelButton({ createAndCancelProps }: CreateAndCancelProps) {
+  return (
+    <button
+      className={`${styles.createAndCancel_button} ${createAndCancelProps.buttonName}`}
+      type="button"
+      onClick={createAndCancelProps.handler}>
+      {createAndCancelProps.buttonName}
     </button>
   )
 }

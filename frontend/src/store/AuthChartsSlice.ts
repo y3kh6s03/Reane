@@ -15,6 +15,7 @@ export type ChartData = {
   id: number;
   userName: string;
   userImage: string;
+  userEmail: string;
   days: number;
   reachName: string;
   skills: SkillData[];
@@ -32,6 +33,7 @@ const initialState: AuthChartState = {
     id: 123,
     userImage: '/google.svg',
     userName: 'yosuke',
+    userEmail: 'y3kh6s03@gmail.com',
     days: 254,
     reachName: 'ウェブ開発スキルの向上',
     skills: [

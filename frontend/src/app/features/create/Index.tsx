@@ -3,12 +3,13 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 
 import React, { useState } from "react";
-import { useAppSellector } from "@/store/hooks";
-import { AddAction } from "@/store/CreateChartSlice";
+import { useAppDispatch, useAppSellector } from "@/store/hooks";
+import { AddAction, addReach, initCreateChart } from "@/store/CreateChartSlice";
+import axios from "axios";
 import AuthDetail from "../../components/elements/authDetail/AuthDetail";
 
 import styles from "./Create.module.scss";
-import { ModalToggleButton } from "../../components/elements/button/Button";
+import { CreateAndCancelButton, ModalToggleButton } from "../../components/elements/button/Button";
 import SkillInputModal from "../../components/elements/Modal/SkillInputModal";
 import Chart from "../../components/elements/chart/Chart";
 import SkillInputModalContainer from "../../components/utils/SkillInputModalContainer";
@@ -19,15 +20,18 @@ interface UserData {
   userData: {
     userName: string,
     userImage: string,
+    userEmail: string,
   }
 }
 
 export default function CreateIndex({ userData }: UserData) {
 
   const createChartStates = useAppSellector((state) => state.createChart)
+  const dispatch = useAppDispatch();
   const [isSkillModal, setIsSkillModal] = useState(false);
   const [isActionModal, setIsActionModal] = useState(false);
   const [skillName, setSkillName] = useState('');
+  const [reachName, setReachName] = useState('');
   const [addActions, setAddActions] = useState<AddAction[]>([]);
   const [inputAction, setInputAction] = useState<string>('');
 
@@ -49,8 +53,30 @@ export default function CreateIndex({ userData }: UserData) {
   }
 
   const modalToggleProps = {
-    setIsModal:setIsSkillModal,
-    toggleName:'スキル'
+    setIsModal: setIsSkillModal,
+    toggleName: 'スキル'
+  }
+
+  const reachNameHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setReachName(e.target.value)
+  }
+
+  const reachNameDispatch = () => {
+    const reachPaylord = {
+      userName: userData.userName,
+      userImage: userData.userImage,
+      userEmail: userData.userEmail,
+      reachName
+    }
+    dispatch(addReach({ reachPaylord }))
+  }
+
+  const createHandler = async () => {
+    const res = await axios.post('http://localhost:3000/api/create', createChartStates)
+    const data = await res.data
+    console.log(data);
+    dispatch(initCreateChart())
+    setReachName('');
   }
 
   return (
@@ -62,22 +88,24 @@ export default function CreateIndex({ userData }: UserData) {
         <AuthDetail userData={userData} />
       </div>
 
-      <div className={styles.goalInput_container}>
-        <label className={styles.goalInput_label} htmlFor="goalName">
-          GOAL
-        </label>
-        <input className={styles.goalInput_input} id="goalName" name="goal_name" type="text" />
-        <button
-          className={styles.create_button}
-          type="submit"
-        >
-          CREATE
-        </button>
-      </div>
+      <label className={styles.goalInput_label} htmlFor="goalName">
+        GOAL
+        <input
+          className={styles.goalInput_input}
+          name="goal_name"
+          type="text"
+          placeholder="目標を入力してください"
+          value={reachName}
+          onChange={(e) => { reachNameHandler(e) }}
+          onBlur={reachNameDispatch}
+        />
+
+      </label>
 
       <div className={styles.chart_container}>
-        <div className={styles.button_container}>
+        <div className={styles.modalbutton_container}>
           <ModalToggleButton modalToggleProps={modalToggleProps} />
+          <CreateAndCancelButton createAndCancelProps={{ buttonName: 'CREATE', handler: createHandler }} />
         </div>
         <Chart chartData={chartData} />
       </div>

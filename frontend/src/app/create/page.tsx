@@ -5,7 +5,8 @@ export default async function Create() {
   const session = await auth();
   const userData = {
     userName: session?.user?.name ?? '',
-    userImage: session?.user?.image ?? ''
+    userImage: session?.user?.image ?? '',
+    userEmail: session?.user?.email ?? '',
   }
   return (
     <CreateIndex userData={userData}/>

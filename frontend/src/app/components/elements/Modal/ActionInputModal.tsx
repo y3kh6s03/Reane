@@ -3,6 +3,7 @@ import { useAppDispatch } from "@/store/hooks";
 import { AddAction, addActions } from "@/store/CreateChartSlice";
 import { SkillData } from "@/store/AuthChartsSlice";
 import styles from "./styles/ActionInput.module.scss"
+import { CreateAndCancelButton } from "../button/Button";
 
 interface ActionInputProps {
   actionData: {
@@ -20,7 +21,7 @@ export default function ActionInputModal({ actionData }: ActionInputProps) {
 
   const dispatch = useAppDispatch();
 
-  const test = () => {
+  const addActionsHandler = () => {
     dispatch(addActions({ skillName: actionData.skillName, actionDatas: actionData.addActions }))
     actionData.setAddActions([])
     actionData.setIsActionModal((prev) => !prev);
@@ -41,6 +42,11 @@ export default function ActionInputModal({ actionData }: ActionInputProps) {
   const onSubmitHandler = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     onBlurHandler();
+  }
+
+  const cancelHandler = ()=>{
+    actionData.setIsActionModal((prev) => !prev);
+    actionData.setAddActions([]);
   }
 
   const handleInputEdit = (name: string, id: number) => {
@@ -122,18 +128,8 @@ export default function ActionInputModal({ actionData }: ActionInputProps) {
         </h3>
 
         <div className={styles.button_container}>
-          <button
-            className={styles.cancel_button}
-            type="button"
-            onClick={() => { test() }}>
-            CANCEL
-          </button>
-          <button
-            className={styles.save_button}
-            type="button"
-            onClick={() => { test() }}>
-            SAVE
-          </button>
+          <CreateAndCancelButton createAndCancelProps={{ buttonName: 'DELETE', handler: cancelHandler }} />
+          <CreateAndCancelButton createAndCancelProps={{ buttonName: 'SAVE', handler: addActionsHandler }} />
         </div>
       </div>
     </div >

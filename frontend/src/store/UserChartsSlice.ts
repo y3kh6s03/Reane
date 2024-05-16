@@ -11,6 +11,7 @@ const initialState: UserChartState = {
     id: 123,
     userName: 'rei',
     userImage: '/defaultIcon.png',
+    userEmail: 'example@gmail.com',
     days: 254,
     reachName: 'ベンチプレス888kg',
     skills: [

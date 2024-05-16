@@ -26,9 +26,9 @@ export default function SkillAndActionIndex() {
   // スキルネームコンポーネント用props取得処理
   // アクション一覧コンポーネント用props取得処理
   const skillName = decodeURIComponent(pathName.substring(1)).split('/')[2];
-  const skillsRowData = SkillAndActioinData.skills;
-  const skillDatas = skillsRowData.find(skill => Object.keys(skill)[0] === skillName);
-  const actionData = skillDatas && skillDatas[skillName];
+  const skillDatas = SkillAndActioinData.skills;
+  const actionDatas = skillDatas[skillName];
+  // const actionData = skillDatas && skillDatas[skillName];
 
   return (
     <div className={styles.container}>
@@ -41,8 +41,8 @@ export default function SkillAndActionIndex() {
       }
       <SkillName skillName={skillName} />
       {
-        actionData
-          ? <Actions {...actionData} />
+        actionDatas
+          ? <Actions {...actionDatas} />
           : <Actions {...[]} />
       }
 

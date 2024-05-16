@@ -1,7 +1,8 @@
 "use client"
 
 // import { useState } from "react";
-import Button, { JournalButton } from "@/app/components/elements/button/Button";
+// import Button, { JournalButton } from "@/app/components/elements/button/Button";
+import Button from "@/app/components/elements/button/Button";
 import { ActionData } from "@/store/AuthChartsSlice";
 import styles from "./styles/Action.module.scss";
 
@@ -12,7 +13,6 @@ export default function Actions(actions: ActionProps) {
   // const [inputActionName, setinputActionName] = useState('')
 
   const dammyFunction = async () => {
-    console.log('test')
   }
 
   return (
@@ -48,11 +48,11 @@ export default function Actions(actions: ActionProps) {
                   placeholder="アクションを入力"
                   value={actionName}
                   // onChange={(e) => setinputActionName(e.target.value)}
-                  onChange={()=>{}}
+                  onChange={() => { }}
                 />
               </form>
               <Button buttonName="delete" />
-              <JournalButton />
+              {/* <JournalButton /> */}
             </div>
           )
         })

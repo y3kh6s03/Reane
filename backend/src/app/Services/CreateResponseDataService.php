@@ -5,6 +5,7 @@ namespace App\Services;
 use App\Models\Action;
 use App\Models\Reach;
 use App\Models\Skill;
+use Illuminate\Support\Facades\Log;
 
 class CreateResponseDataService
 {
@@ -19,15 +20,13 @@ class CreateResponseDataService
 
     $skills = $req->input('skills');
 
-    foreach ($skills as $val) {
-      $skillName = key($val);
+    foreach ($skills as $skillName => $val) {
       $skill = Skill::create([
         'name' => $skillName,
         'reach_id' => $reach->id,
       ]);
-      $actions = $val[$skillName];
+      $actions = $val;
       $actionCount = 0;
-
       if (count($actions) >= 1) {
         foreach ($actions as $key => $actionData) {
           $actionCount++;
@@ -36,9 +35,9 @@ class CreateResponseDataService
             'name' => $actionName,
             'skill_id' => $skill->id,
             'reach_id' => $reach->id,
-            'is_completed' => 0
+            'is_completed' => $actionData[$actionName]
           ]);
-          $skillDatas[$skillName][$key] = array(array($action->name, $action->is_completed));
+          $skillDatas[$skillName][] = array($action->name => $action->is_completed);
         }
       } else {
         $skillDatas = [];

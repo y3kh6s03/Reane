@@ -8,7 +8,7 @@ import styles from "./chart.module.scss"
 interface ChartData {
   chartData: {
     userName: string,
-    skills: SkillData[]
+    skills: SkillData,
     setIsActionModal?: Dispatch<SetStateAction<boolean>>;
     setSkillName?: Dispatch<SetStateAction<string>>
   },
@@ -55,7 +55,7 @@ export default function Chart({ chartData }: ChartData) {
     >
       {
         Object.entries(chartData.skills).map((val, index) => {
-          const skillName = Object.entries(val[1])[0][0]
+          const skillName = val[0]
           const y = rad && radOffset && r
             ? Math.sin(rad * index + radOffset) * r + r
             : 0;
@@ -86,7 +86,7 @@ export default function Chart({ chartData }: ChartData) {
               <span
                 className={styles.skills_inner_name}
               >
-                {Object.entries(val[1])[0][0]}
+                {skillName}
               </span>
             </div>
           )

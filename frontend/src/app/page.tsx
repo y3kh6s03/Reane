@@ -1,4 +1,4 @@
-import MyChart from "./mychart/MyChart";
+import MyChart from "./myChart/page";
 
 export default async function Home() {
 

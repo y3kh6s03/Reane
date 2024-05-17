@@ -1,6 +1,7 @@
 import { Metadata } from "next";
 
 import { auth } from "@/auth";
+import { SessionProvider } from "next-auth/react";
 import { accFont, jpFont, enFont } from "./styles/fonts";
 import Nav from "./components/layouts/nav/Nav";
 
@@ -29,16 +30,18 @@ export default async function RootLayout({
     <html lang='ja'>
       <body className={`${accFont.variable} ${jpFont.variable} ${enFont.variable}`}>
         <main>
-          <ChartProvider>
-            {authImage &&
-              <>
-                <Header />
-                <Nav props={authImage} />
-                <SideBar />
-              </>
-            }
-            {children}
-          </ChartProvider>
+          <SessionProvider>
+            <ChartProvider>
+              {authImage &&
+                <>
+                  <Header />
+                  <Nav props={authImage} />
+                  <SideBar />
+                </>
+              }
+              {children}
+            </ChartProvider>
+          </SessionProvider>
         </main>
       </body>
     </html>

@@ -20,13 +20,13 @@ class CreateResponseDataService
 
     $skills = $req->input('skills');
 
+    $actionCount = 0;
     foreach ($skills as $skillName => $val) {
       $skill = Skill::create([
         'name' => $skillName,
         'reach_id' => $reach->id,
       ]);
       $actions = $val;
-      $actionCount = 0;
       if (count($actions) >= 1) {
         foreach ($actions as $key => $actionData) {
           $actionCount++;

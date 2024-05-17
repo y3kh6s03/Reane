@@ -1,3 +1,4 @@
+/* eslint-disable no-param-reassign */
 import { createSlice } from "@reduxjs/toolkit";
 
 // このスライスのデータは基本的にDBから取得したユーザー本人のチャートのデータを保持している
@@ -96,7 +97,11 @@ const initialState: AuthChartState = {
 const authChartsSlice = createSlice({
   name: "authorChart",
   initialState,
-  reducers: {},
+  reducers: {
+    currentChartDatas(state, action){
+      state = action.payload;
+    }
+  },
 })
-// export const { increment, amoutAdd } = counterSlice.actions;
+export const {currentChartDatas  } = authChartsSlice.actions;
 export default authChartsSlice.reducer;

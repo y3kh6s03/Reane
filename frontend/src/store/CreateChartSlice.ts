@@ -54,7 +54,6 @@ const createChartSlice = createSlice({
       const { skillName, actionDatas } = action.payload;
       const actions = actionDatas?.map(actionData => actionData.name);
       const insertActions = actions?.map((actionName) => ({ [actionName]: 0 }))
-      // const skillIndex = state.skills.findIndex(skill => skillName in skill)
       const currentActions = [...state.skills[skillName]]
       if (currentActions && insertActions) {
         state.skills[skillName] = [...currentActions, ...insertActions]

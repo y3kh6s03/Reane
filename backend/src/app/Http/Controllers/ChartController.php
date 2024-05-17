@@ -16,9 +16,25 @@ use Illuminate\Support\Facades\Validator;
 class ChartController extends Controller
 {
 
-  public function index()
+  public function index(Request $req): JsonResponse
   {
-    return response()->json('test');
+    $email = $req->input('authEmail');
+    $chartDatas = Reach::with(['skills' => ['actions']])->where('user_email', $email)->get()->toArray();
+    foreach($chartDatas as $key => $data){
+      $createdDate=explode('T',$chartDatas[$key]['created_at'])[0];
+      $days=DateCalcService::calcDate($createdDate);
+      $chartDatas[$key]['days']=$days;
+
+      // $skills=$data['skills'];
+      // $actionCount=0;
+      // foreach($skills as $skillData){
+      //   $actionCount+=count($skillData['actions']);
+      // }
+      // $chartDatas[$key]['actionCount']=$actionCount;
+    }
+
+
+    return response()->json($chartDatas);
   }
 
   public function store(Request $req): JsonResponse
@@ -52,9 +68,3 @@ class ChartController extends Controller
     }
   }
 }
-
-
-// export type ChartData = {
-//   : number;
-//   : string;
-// };

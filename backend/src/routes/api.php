@@ -20,10 +20,10 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::prefix('/')
+Route::prefix('/myChart')
 ->controller(ChartController::class)
 ->name('reina')
 ->group(function(){
-	Route::get('/', 'index')->name('index');
-	Route::post('/', 'store')->name('store');
+	Route::post('/', 'index')->name('index');
+	Route::post('/create', 'store')->name('store');
 });

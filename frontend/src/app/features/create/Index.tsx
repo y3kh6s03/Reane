@@ -75,7 +75,7 @@ export default function CreateIndex({ userData }: UserData) {
   }
 
   const createHandler = async () => {
-    const res = await axios.post('http://localhost:3000/api/create', createChartStates)
+    const res = await axios.post('http://localhost:3000/api/myChart/create', createChartStates)
     const data = await res.data
     console.log(data);
     dispatch(initCreateChart())

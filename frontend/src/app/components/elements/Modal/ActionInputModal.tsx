@@ -9,8 +9,8 @@ interface ActionInputProps {
   actionData: {
     setIsActionModal: Dispatch<SetStateAction<boolean>>,
     skillName: string
-    addActions: AddAction[],
-    setAddActions: Dispatch<SetStateAction<AddAction[]>>,
+    addModalActions: AddAction[],
+    setAddModalActions: Dispatch<SetStateAction<AddAction[]>>,
     inputAction: string,
     setInputAction: Dispatch<SetStateAction<string>>,
     addedActions?: SkillData
@@ -22,8 +22,8 @@ export default function ActionInputModal({ actionData }: ActionInputProps) {
   const dispatch = useAppDispatch();
 
   const addActionsHandler = () => {
-    dispatch(addActions({ skillName: actionData.skillName, actionDatas: actionData.addActions }))
-    actionData.setAddActions([])
+    dispatch(addActions({ skillName: actionData.skillName, actionDatas: actionData.addModalActions }))
+    actionData.setAddModalActions([])
     actionData.setIsActionModal((prev) => !prev);
   }
 
@@ -34,7 +34,7 @@ export default function ActionInputModal({ actionData }: ActionInputProps) {
   const onBlurHandler = () => {
     if (actionData.inputAction !== '') {
       const addAction = { id: new Date().getTime(), name: actionData.inputAction }
-      actionData.setAddActions((prev: AddAction[]) => [...prev, addAction])
+      actionData.setAddModalActions((prev: AddAction[]) => [...prev, addAction])
       actionData.setInputAction('');
     }
   }
@@ -46,11 +46,11 @@ export default function ActionInputModal({ actionData }: ActionInputProps) {
 
   const cancelHandler = ()=>{
     actionData.setIsActionModal((prev) => !prev);
-    actionData.setAddActions([]);
+    actionData.setAddModalActions([]);
   }
 
   const handleInputEdit = (name: string, id: number) => {
-    actionData.setAddActions((prevActions) => {
+    actionData.setAddModalActions((prevActions) => {
       const newAddActions = prevActions.map((action) => {
         if (action.id === id) {
           // eslint-disable-next-line no-param-reassign
@@ -114,7 +114,7 @@ export default function ActionInputModal({ actionData }: ActionInputProps) {
           </form>
           <ul className={styles.addAction_container}>
             {
-              actionData.addActions.map((action) =>
+              actionData.addModalActions.map((action) =>
                 <li key={action.id}>
                   <input
                     className={styles.addAction_name}

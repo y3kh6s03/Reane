@@ -4,7 +4,9 @@ import { PayloadAction, createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 
 export interface ActionData {
-  [action: string]: number
+  name?: string,
+  id?: number,
+  isCompleted?: number
 }
 
 export interface SkillData {

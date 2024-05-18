@@ -19,22 +19,48 @@ class ChartController extends Controller
   public function index(Request $req): JsonResponse
   {
     $email = $req->input('authEmail');
-    $chartDatas = Reach::with(['skills' => ['actions']])->where('user_email', $email)->get()->toArray();
-    foreach($chartDatas as $key => $data){
-      $createdDate=explode('T',$chartDatas[$key]['created_at'])[0];
-      $days=DateCalcService::calcDate($createdDate);
-      $chartDatas[$key]['days']=$days;
+    $chartDatas = Reach::with(['skills.actions' => function ($query) {
+      $query->select('id', 'skill_id', 'name', 'is_completed');
+    }])->where('user_email', $email)->get();
 
-      // $skills=$data['skills'];
-      // $actionCount=0;
-      // foreach($skills as $skillData){
-      //   $actionCount+=count($skillData['actions']);
-      // }
-      // $chartDatas[$key]['actionCount']=$actionCount;
+    $resChartDatas = [];
+
+    foreach ($chartDatas as $chartData) {
+      $createdDate = explode(' ',explode('T', $chartData->created_at)[0])[0];
+      $days = DateCalcService::calcDate($createdDate);
+
+      $skills = [];
+      $actionCount = 0;
+      $executedActionCount = 0;
+
+      foreach ($chartData->skills as $skill) {
+        $actions = [];
+        foreach ($skill->actions as $action) {
+          $actions[$action->name] = $action->is_completed;
+
+          $actionCount++;
+          if ($action->is_completed === 1) {
+            $executedActionCount++;
+          }
+        }
+        $skills[$skill->name] = $actions;
+      }
+
+      $resChartDatas[] = [
+        'id' => $chartData->id,
+        'userName' => $chartData->user_name,
+        'userImage' => $chartData->user_image,
+        'userEmail' => $chartData->user_email,
+        'reachName' => $chartData->name,
+        'skills' => $skills,
+        'actionCount' => $actionCount,
+        'executedActionCount' => $executedActionCount,
+        'days' => $days,
+        'createdAt' => $chartData->created_at,
+      ];
     }
 
-
-    return response()->json($chartDatas);
+    return response()->json($resChartDatas);
   }
 
   public function store(Request $req): JsonResponse

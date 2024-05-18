@@ -9,10 +9,10 @@ import AuthDetail from "../../components/elements/authDetail/AuthDetail";
 
 interface ReachData {
   reachData: {
-    name: string
-    userName: string
-    userImage: string
-  }
+    name: string | undefined
+    userName: string | undefined
+    userImage: string | undefined
+  } | null
 }
 
 export default function Reach({ reachData }: ReachData) {

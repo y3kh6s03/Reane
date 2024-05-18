@@ -3,9 +3,9 @@ import styles from "./AuthDetail.module.scss"
 
 interface UserData {
   userData: {
-    userName: string,
-    userImage: string,
-  }
+    userName: string | undefined,
+    userImage: string | undefined,
+  } | null
 }
 
 export default function AuthDetail({ userData }: UserData) {
@@ -14,11 +14,11 @@ export default function AuthDetail({ userData }: UserData) {
   return (
     <div className={styles.auth}>
       <div className={styles.auth_icon_container}>
-        <Image src={userData.userImage} fill sizes="100%" alt="icon" />
+        <Image src={userData?.userImage ?? ''} fill sizes="100%" alt="icon" />
       </div>
       <div className={styles.auth_details}>
         <span className={styles.auth_details_name}>
-          {userData.userName}
+          {userData?.userName}
         </span>
         <span className={styles.auth_details_days}>
           Days: {days}

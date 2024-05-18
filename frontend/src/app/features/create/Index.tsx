@@ -3,7 +3,7 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 
 import React, { useState } from "react";
-import { useAppDispatch, useAppSellector } from "@/store/hooks";
+import { useAppDispatch, useAppSelector } from "@/store/hooks";
 import { AddAction, addReach, initCreateChart } from "@/store/CreateChartSlice";
 import { useRouter } from "next/navigation";
 import axios from "axios";
@@ -28,7 +28,7 @@ interface UserData {
 
 export default function CreateIndex({ userData }: UserData) {
 
-  const createChartStates = useAppSellector((state) => state.createChart)
+  const createChartStates = useAppSelector((state) => state.createChart)
   const dispatch = useAppDispatch();
   const [isSkillModal, setIsSkillModal] = useState(false);
   const [isActionModal, setIsActionModal] = useState(false);

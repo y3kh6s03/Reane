@@ -1,8 +1,23 @@
 /* eslint-disable no-param-reassign */
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
-import { ChartData } from "./AuthChartsSlice";
 
-export type CreateChartProps = Omit<ChartData, 'id' | 'createdAt'>
+interface ActionData {
+  [action: string]: number
+}
+interface SkillData {
+  [skill: string]: ActionData[]
+}
+
+type CreateChartProps = {
+  userName: string;
+  userImage: string;
+  userEmail: string;
+  reachName: string;
+  skills: SkillData,
+  actionCount?: number;
+  executedActionCount?: number;
+  days: number;
+};
 
 interface ReachPayload {
   reachPaylord: {
@@ -47,7 +62,7 @@ const createChartSlice = createSlice({
 
     addSkill(state, action: PayloadAction<AddChartPayload>) {
       const { skillName } = action.payload;
-      state.skills[skillName]=[]
+      state.skills[skillName] = []
     },
 
     addActions(state, action: PayloadAction<AddChartPayload>) {

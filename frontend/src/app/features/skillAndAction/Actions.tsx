@@ -41,10 +41,10 @@ export default function Actions(actions: ActionProps) {
       </div>
 
       {
-        Object.entries(actions).map((action) => {
-          const actionName = action[0]
+        Object.values(actions).map((actionData) => {
+          const actionName = actionData.name
           return (
-            <div key={actionName} className={styles.actions_container}>
+            <div key={actionData.id} className={styles.actions_container}>
               <form className={styles.checkbox} onChange={dammyFunction}>
                 <input type="checkbox" />
               </form>

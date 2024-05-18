@@ -26,7 +26,7 @@ class ChartController extends Controller
     $resChartDatas = [];
 
     foreach ($chartDatas as $chartData) {
-      $createdDate = explode(' ',explode('T', $chartData->created_at)[0])[0];
+      $createdDate = explode(' ', explode('T', $chartData->created_at)[0])[0];
       $days = DateCalcService::calcDate($createdDate);
 
       $skills = [];
@@ -35,8 +35,13 @@ class ChartController extends Controller
 
       foreach ($chartData->skills as $skill) {
         $actions = [];
-        foreach ($skill->actions as $action) {
-          $actions[$action->name] = $action->is_completed;
+        foreach ($skill->actions as $key => $action) {
+          $actions[$key]=[
+            'id'=>$action->id,
+            'name'=>$action->name,
+            'isCompleted'=>$action->is_completed,
+          ];
+          // $actions[$action->name] = $action->is_completed;
 
           $actionCount++;
           if ($action->is_completed === 1) {

@@ -7,8 +7,8 @@ import styles from "./chart.module.scss"
 
 interface ChartData {
   chartData: {
-    userName: string,
-    skills: SkillData,
+    userName: string | undefined,
+    skills: SkillData[] | undefined,
     setIsActionModal?: Dispatch<SetStateAction<boolean>>;
     setSkillName?: Dispatch<SetStateAction<string>>
   },
@@ -29,7 +29,7 @@ export default function Chart({ chartData }: ChartData) {
     router.push(`/skillAndAction/${chartData.userName}/${skillName}`);
   }
 
-  const skillLength = Object.keys(chartData.skills).length;
+  const skillLength = chartData.skills ? Object.entries(chartData.skills).length : 0;
   const [rad, setRad] = useState<number>();
   const [r, setR] = useState<number>();
   const [radOffset, setRadOffset] = useState<number>();
@@ -37,7 +37,7 @@ export default function Chart({ chartData }: ChartData) {
   const skillsInner = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
-    if (skillsContainer.current && skillsInner.current) {
+    if (skillsContainer.current && skillsInner.current && skillLength > 0) {
       const deg = 360.0 / skillLength;
       const circleRadius = skillsContainer.current.clientWidth / 2 - skillsInner.current.clientWidth / 2;
       const radianOffset = -Math.PI / 2;
@@ -54,8 +54,10 @@ export default function Chart({ chartData }: ChartData) {
       className={styles.skills_container}
     >
       {
-        Object.entries(chartData.skills).map((val, index) => {
-          const skillName = val[0]
+        chartData.skills !== undefined
+        ?
+        Object.entries(chartData.skills).map((skillData, index) => {
+          const skillName = skillData[0]
           const y = rad && radOffset && r
             ? Math.sin(rad * index + radOffset) * r + r
             : 0;
@@ -91,6 +93,7 @@ export default function Chart({ chartData }: ChartData) {
             </div>
           )
         })
+        : ''
       }
     </div>
   )

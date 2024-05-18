@@ -2,9 +2,9 @@ import styles from "./styles/chartDisp.module.scss";
 
 interface ChartDispData {
   chartDispData: {
-    createdAt: string,
-    actionCount: number,
-    executedCount: number
+    createdAt: string | undefined,
+    actionCount: number | undefined,
+    executedCount: number | undefined
   }
 }
 

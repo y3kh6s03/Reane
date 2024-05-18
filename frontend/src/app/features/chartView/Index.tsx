@@ -1,6 +1,6 @@
 import AuthDetail from "@/app/components/elements/authDetail/AuthDetail";
 import { useSession } from "next-auth/react";
-import { ChartData } from "@/store/AuthChartsSlice";
+import { ChartData } from "@/store/slice/AuthChartsSlice";
 import styles from "./styles/ChartView.module.scss";
 import Reach from "./Reach";
 
@@ -14,7 +14,6 @@ interface ChartProps {
 }
 
 export default function ChartIndex({ chartData }: ChartProps) {
-  console.log(chartData)
   const { data: session } = useSession();
   const authName = session?.user?.name;
 
@@ -31,6 +30,7 @@ export default function ChartIndex({ chartData }: ChartProps) {
 
   const skillDatas = {
     userName: chartData?.userName,
+    userImage: chartData?.userImage,
     skills: chartData?.skills
   }
 
@@ -52,8 +52,8 @@ export default function ChartIndex({ chartData }: ChartProps) {
       </div>
       <Reach reachData={reachData} />
       <div className={styles.skills_wrapper}>
-        <Chart chartData={skillDatas} />
-        <ProgressMeter progressData={{actionCount: 400, executedCount: 245}} />
+        <Chart skillDatas={skillDatas} />
+        <ProgressMeter progressData={{ actionCount: 400, executedCount: 245 }} />
         <ChartDisp chartDispData={chartDispData} />
       </div>
       {

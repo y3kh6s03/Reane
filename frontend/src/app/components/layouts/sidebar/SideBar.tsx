@@ -1,11 +1,11 @@
 // "use client"
 
-// import { useAppSellector } from "@/store/hooks"
+// import { useAppSelector } from "@/store/hooks"
 // import AuthDetail from "../../elements/authDetail/AuthDetail"
 import styles from "./sidebar.module.scss"
 
 export default function SideBar() {
-  // const { chartData } = useAppSellector((state) => state.chart)
+  // const { chartData } = useAppSelector((state) => state.chart)
   // const userData={
   //   userName: chartData.authName,
   //   userImage: chartData.authImage

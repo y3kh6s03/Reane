@@ -1,5 +1,5 @@
 import { Dispatch, SetStateAction, useState } from "react";
-import { addSkill } from "@/store/CreateChartSlice";
+import { addSkill } from "@/store/slice/CreateChartSlice";
 import { useAppDispatch } from "@/store/hooks";
 import styles from "./styles/SkillInput.module.scss";
 

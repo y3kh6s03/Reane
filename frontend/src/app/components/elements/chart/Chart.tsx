@@ -2,34 +2,51 @@
 
 import { useRouter, usePathname } from "next/navigation";
 import { Dispatch, SetStateAction, useEffect, useRef, useState } from "react";
-import { SkillData } from "@/store/AuthChartsSlice";
+import { SkillData } from "@/store/slice/AuthChartsSlice";
+import { useAppDispatch } from "@/store/hooks";
+import { currentSkillAndAction } from "@/store/slice/SkillAndActionSlice";
 import styles from "./chart.module.scss"
 
-interface ChartData {
-  chartData: {
+interface SkillDatas {
+  skillDatas: {
     userName: string | undefined,
-    skills: SkillData[] | undefined,
+    userImage: string | undefined,
+    skills: SkillData | undefined,
     setIsActionModal?: Dispatch<SetStateAction<boolean>>;
     setSkillName?: Dispatch<SetStateAction<string>>
   },
 }
 
-export default function Chart({ chartData }: ChartData) {
+export default function Chart({ skillDatas }: SkillDatas) {
 
   const pathName = usePathname().substring(1);
   const modalOpen = (skill: string) => {
-    if (chartData.setIsActionModal && chartData.setSkillName) {
-      chartData.setIsActionModal((prev) => !prev);
-      chartData.setSkillName(skill)
+    if (skillDatas.setIsActionModal && skillDatas.setSkillName) {
+      skillDatas.setIsActionModal((prev) => !prev);
+      skillDatas.setSkillName(skill)
     }
   }
 
+  const dispatch = useAppDispatch();
+
   const router = useRouter();
   const skillAndActionRedirect = (skillName: string) => {
-    router.push(`/skillAndAction/${chartData.userName}/${skillName}`);
+    if (skillDatas.skills && skillDatas.userName && skillDatas.userImage) {
+      const actionDatas = skillDatas.skills[skillName]
+      if (actionDatas) {
+        const skillAndActionData = {
+          userName: skillDatas.userName,
+          userImage: skillDatas.userImage,
+          skillName,
+          actionDatas
+        }
+        dispatch(currentSkillAndAction(skillAndActionData));
+        router.push(`/skillAndAction/${skillDatas.userName}/${skillName}`);
+      }
+    }
   }
 
-  const skillLength = chartData.skills ? Object.entries(chartData.skills).length : 0;
+  const skillLength = skillDatas.skills ? Object.entries(skillDatas.skills).length : 0;
   const [rad, setRad] = useState<number>();
   const [r, setR] = useState<number>();
   const [radOffset, setRadOffset] = useState<number>();
@@ -54,46 +71,46 @@ export default function Chart({ chartData }: ChartData) {
       className={styles.skills_container}
     >
       {
-        chartData.skills !== undefined
-        ?
-        Object.entries(chartData.skills).map((skillData, index) => {
-          const skillName = skillData[0]
-          const y = rad && radOffset && r
-            ? Math.sin(rad * index + radOffset) * r + r
-            : 0;
-          const x = rad && radOffset && r
-            ? Math.cos(rad * index + radOffset) * r + r
-            : 0;
-          return (
-            <div
-              ref={skillsInner}
-              className={styles.skills_inner}
-              style={{ left: x, top: y, backgroundColor: pathName === 'create' ? "gray" : '' }}
-              key={skillName}
-              role="button"
-              tabIndex={0}
-              onClick={pathName === 'create'
-                ? () => { modalOpen(skillName) }
-                : () => { skillAndActionRedirect(skillName) }
-              }
-              onKeyDown={(event) => {
-                if (event.key === 'Enter') {
-                  const actionToPerform = pathName === 'create'
-                    ? () => modalOpen(skillName)
-                    : () => { skillAndActionRedirect(skillName) }
-                  actionToPerform();
+        skillDatas.skills !== undefined
+          ?
+          Object.entries(skillDatas.skills).map((skillData, index) => {
+            const skillName = skillData[0]
+            const y = rad && radOffset && r
+              ? Math.sin(rad * index + radOffset) * r + r
+              : 0;
+            const x = rad && radOffset && r
+              ? Math.cos(rad * index + radOffset) * r + r
+              : 0;
+            return (
+              <div
+                ref={skillsInner}
+                className={styles.skills_inner}
+                style={{ left: x, top: y, backgroundColor: pathName === 'create' ? "gray" : '' }}
+                key={skillName}
+                role="button"
+                tabIndex={0}
+                onClick={pathName === 'create'
+                  ? () => { modalOpen(skillName) }
+                  : () => { skillAndActionRedirect(skillName) }
                 }
-              }}
-            >
-              <span
-                className={styles.skills_inner_name}
+                onKeyDown={(event) => {
+                  if (event.key === 'Enter') {
+                    const actionToPerform = pathName === 'create'
+                      ? () => modalOpen(skillName)
+                      : () => { skillAndActionRedirect(skillName) }
+                    actionToPerform();
+                  }
+                }}
               >
-                {skillName}
-              </span>
-            </div>
-          )
-        })
-        : ''
+                <span
+                  className={styles.skills_inner_name}
+                >
+                  {skillName}
+                </span>
+              </div>
+            )
+          })
+          : ''
       }
     </div>
   )

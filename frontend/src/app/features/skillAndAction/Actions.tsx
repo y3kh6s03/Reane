@@ -3,14 +3,21 @@
 // import { useState } from "react";
 // import Button, { JournalButton } from "@/app/components/elements/button/Button";
 import Button from "@/app/components/elements/button/Button";
-import { ActionData } from "@/store/AuthChartsSlice";
+import { ActionData } from "@/store/slice/AuthChartsSlice";
 import styles from "./styles/Action.module.scss";
 
-type ActionProps = ActionData[]
+type ActionProps = ActionData
 
 export default function Actions(actions: ActionProps) {
-
-  // const [inputActionName, setinputActionName] = useState('')
+  console.log(actions)
+  const actionCount = Object.keys(actions).length
+  let executedCount = 0;
+  Object.values(actions).forEach((val) => {
+    if (val === 1) {
+      executedCount += 1
+    }
+  })
+  const rate = Math.floor(executedCount / actionCount * 100)
 
   const dammyFunction = async () => {
   }
@@ -25,18 +32,17 @@ export default function Actions(actions: ActionProps) {
       <div className={styles.skill_rate_container}>
         <span className={styles.skill_rate}>
           {/* 取得データに変更 */}
-          25
+          {rate}
           <span className={styles.skill_rate_parcent}>%</span>
         </span>
         <span className={styles.skill_count}>
-          {/* 取得データに変更 */}
-          1 / 5
+          {executedCount} / {actionCount}
         </span>
       </div>
 
       {
-        Object.values(actions).map((action) => {
-          const actionName = Object.keys(action)[0]
+        Object.entries(actions).map((action) => {
+          const actionName = action[0]
           return (
             <div key={actionName} className={styles.actions_container}>
               <form className={styles.checkbox} onChange={dammyFunction}>

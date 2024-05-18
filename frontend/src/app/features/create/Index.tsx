@@ -4,7 +4,7 @@
 
 import React, { useState } from "react";
 import { useAppDispatch, useAppSelector } from "@/store/hooks";
-import { AddAction, addReach, initCreateChart } from "@/store/CreateChartSlice";
+import { AddAction, addReach, initCreateChart } from "@/store/slice/CreateChartSlice";
 import { useRouter } from "next/navigation";
 import axios from "axios";
 import AuthDetail from "../../components/elements/authDetail/AuthDetail";
@@ -40,6 +40,7 @@ export default function CreateIndex({ userData }: UserData) {
 
   const chartData = {
     userName: userData.userName,
+    userImage: userData.userImage,
     skills: createChartStates.skills,
     setIsActionModal,
     setSkillName,
@@ -75,9 +76,7 @@ export default function CreateIndex({ userData }: UserData) {
   }
 
   const createHandler = async () => {
-    const res = await axios.post('http://localhost:3000/api/myChart/create', createChartStates)
-    const data = await res.data
-    console.log(data);
+    await axios.post('http://localhost:3000/api/myChart/create', createChartStates)
     dispatch(initCreateChart())
     setReachName('');
     router.push('/myChart');
@@ -111,7 +110,7 @@ export default function CreateIndex({ userData }: UserData) {
           <ModalToggleButton modalToggleProps={modalToggleProps} />
           <CreateAndCancelButton createAndCancelProps={{ buttonName: 'CREATE', handler: createHandler }} />
         </div>
-        <Chart chartData={chartData} />
+        <Chart skillDatas={chartData} />
       </div>
 
       {isSkillModal &&

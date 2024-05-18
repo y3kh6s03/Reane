@@ -1,7 +1,7 @@
 import { ChangeEvent, Dispatch, FormEvent, SetStateAction } from "react";
 import { useAppDispatch } from "@/store/hooks";
-import { AddAction, addActions } from "@/store/CreateChartSlice";
-import { SkillData } from "@/store/AuthChartsSlice";
+import { AddAction, addActions } from "@/store/slice/CreateChartSlice";
+import { SkillData } from "@/store/slice/AuthChartsSlice";
 import styles from "./styles/ActionInput.module.scss"
 import { CreateAndCancelButton } from "../button/Button";
 
@@ -63,7 +63,6 @@ export default function ActionInputModal({ actionData }: ActionInputProps) {
   }
 
   const addedActionDatas = actionData.addedActions;
-  // const addedActionDatas = actionData.addedActions?.find(addedAction => actionData.skillName in addedAction)
 
   const actions = addedActionDatas && addedActionDatas[actionData.skillName]
 

@@ -13,3 +13,77 @@
 
 ## 業務フロー
 file:///Users/yosuke/Desktop/Reine/documents/design/WORK_FLOW.drawio.png
+
+## ワイヤーフレーム兼デザインカンプ
+https://www.figma.com/design/AHCdCF0YWXl5T9UwiBvCHX/Reina?node-id=0-1&t=hQmLoyp1Czv6he4l-0
+
+## テーブル定義書
+goal
+| PK  | COLUMN          | TYPE            | NULL | DEFAULT | FK  | UNIQUE | AUTO | COMMENT         |
+| --- | --------------- | --------------- | ---- | ------- | --- | ------ | ---- | --------------- |
+| ◯   | id              | unsignedInteger |      |         |     |        | ◯    |                 |
+|     | name            | string(254)     |      |         |     | ◯      |      | reach title     |
+|     | user_name       | string(254)     |      |         |     |        |      |                 |
+|     | user_email      | string(254)     |      |         |     |        |      |                 |
+|     | user_image      | text            |      |         |     |        |      |                 |
+|     | total_views     | unsignedInteger |      | 0       |     |        |      | view count      |
+|     | total_citations | unsignedInteger |      | 0       |     |        |      | citations count |
+
+skills
+| PK  | COLUMN  | TYPE            | NULL | DEFAULT | FK  | UNIQUE | AUTO | COMMENT     |
+| --- | ------- | --------------- | ---- | ------- | --- | ------ | ---- | ----------- |
+| ◯   | id      | unsignedInteger |      |         |     |        | ◯    |             |
+|     | name    | string(50)      |      |         |     |        |      | skill name  |
+|     | goal_id | unsignedInteger |      |         | ◯   |        |      | goals table |
+
+actions
+| PK  | COLUMN       | TYPE            | NULL | DEFAULT | FK  | UNIQUE | AUTO | COMMENT     |
+| --- | ------------ | --------------- | ---- | ------- | --- | ------ | ---- | ----------- |
+| ◯   | id           | unsignedInteger |      |         |     |        | ◯    |             |
+|     | name         | string(50)      |      |         |     |        |      | action name |
+|     | skill_id     | unsignedInteger |      |         | ◯   |        |      | skill table |
+|     | reach_id     | unsignedInteger |      |         | ◯   |        |      | reach table |
+|     | is_completed | boolean         |      | 0       |     |        |      |             |
+
+comments
+| PK  | COLUMN  | TYPE            | NULL | DEFAULT | FK  | UNIQUE | AUTO | COMMENT     |
+| --- | ------- | --------------- | ---- | ------- | --- | ------ | ---- | ----------- |
+| ◯   | id      | unsignedInteger |      |         |     |        | ◯    |             |
+|     | user_id | unsignedInteger |      |         | ◯   |        |      | users table |
+|     | goal_id | unsignedInteger |      |         | ◯   |        |      | goals table |
+|     | comment | text            |      |         |     |        |      | comment     |
+
+favorite_goals
+| PK  | COLUMN  | TYPE            | NULL | DEFAULT | FK  | UNIQUE | AUTO | COMMENT     |
+| --- | ------- | --------------- | ---- | ------- | --- | ------ | ---- | ----------- |
+| ◯   | id      | unsignedInteger |      |         |     |        | ◯    |             |
+|     | user_id | unsignedInteger |      |         | ◯   |        |      | users name  |
+|     | goal_id | unsignedInteger |      |         | ◯   |        |      | goals table |
+
+favorite_users
+| PK  | COLUMN           | TYPE            | NULL | DEFAULT | FK  | UNIQUE | AUTO | COMMENT     |
+| --- | ---------------- | --------------- | ---- | ------- | --- | ------ | ---- | ----------- |
+| ◯   | id               | unsignedInteger |      |         |     |        | ◯    |             |
+|     | user_id          | unsignedInteger |      |         | ◯   |        |      | users table |
+|     | favorite_user_id | unsignedInteger |      |         | ◯   |        |      | users table |
+
+references
+| PK  | COLUMN    | TYPE            | NULL | DEFAULT  | FK  | UNIQUE | AUTO | COMMENT        |
+| --- | --------- | --------------- | ---- | -------- | --- | ------ | ---- | -------------- |
+| ◯   | id        | unsignedInteger |      |          |     |        | ◯    |                |
+|     | user_id   | unsignedInteger |      |          | ◯   |        |      | users table    |
+|     | date      | date            |      |          |     |        |      |                |
+|     | exec_time | time            | ◯    | 00:00:00 |     |        |      |                |
+|     | memo      | text            |      |          |     |        |      | furikaeri memo |
+
+action_references
+| PK  | COLUMN       | TYPE            | NULL | DEFAULT | FK  | UNIQUE | AUTO | COMMENT          |
+| --- | ------------ | --------------- | ---- | ------- | --- | ------ | ---- | ---------------- |
+| ◯   | id           | unsignedInteger |      |         |     |        | ◯    |                  |
+|     | action_id    | unsignedInteger |      |         | ◯   |        |      | actions table    |
+|     | reference_id | unsignedInteger |      |         | ◯   |        |      | references table |
+|     |              |                 |      |         |     |        |      |                  |
+
+## システム構成図
+file:///Users/yosuke/Desktop/Reine/documents/design/SYSTEM.drawio.png
+

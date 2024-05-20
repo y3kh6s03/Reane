@@ -1,6 +1,7 @@
 import AuthDetail from "@/app/components/elements/authDetail/AuthDetail";
 import { useSession } from "next-auth/react";
 import { ChartData } from "@/store/slice/AuthChartsSlice";
+import { splitString } from "@/app/components/utils/chartUtils";
 import styles from "./styles/ChartView.module.scss";
 import Reach from "./Reach";
 
@@ -16,6 +17,10 @@ interface ChartProps {
 export default function ChartIndex({ chartData }: ChartProps) {
   const { data: session } = useSession();
   const authName = session?.user?.name;
+  let dispCreatedAt;
+  if(chartData?.createdAt){
+    dispCreatedAt = splitString(chartData && chartData?.createdAt, 'T');
+  }
 
   const userData = {
     userName: chartData?.userEmail,
@@ -40,9 +45,9 @@ export default function ChartIndex({ chartData }: ChartProps) {
   // }
 
   const chartDispData = {
-    createdAt: chartData?.createdAt,
-    actionCount: 400,
-    executedCount: 245
+    createdAt: dispCreatedAt,
+    actionCount: chartData?.actionCount,
+    executedCount: chartData?.executedActionCount
   }
 
   return (

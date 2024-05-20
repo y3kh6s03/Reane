@@ -5,7 +5,7 @@ interface UserData {
   userData: {
     userName: string | undefined,
     userImage: string | undefined,
-  } | null
+  }
 }
 
 export default function AuthDetail({ userData }: UserData) {

@@ -9,18 +9,18 @@ import AuthDetail from "../../components/elements/authDetail/AuthDetail";
 
 interface ReachData {
   reachData: {
-    name: string | undefined
-    userName: string | undefined
+    name: string | undefined,
+    userName: string | undefined,
     userImage: string | undefined
-  } | null
+  }
 }
 
 export default function Reach({ reachData }: ReachData) {
   const { data: session } = useSession();
   const authName = session?.user?.name
   const userData = {
-    userName: reachData.userName,
-    userImage: reachData.userImage
+    userName: reachData && reachData.userName,
+    userImage: reachData && reachData.userImage
   }
   return (
     <div className={styles.container}>
@@ -28,11 +28,12 @@ export default function Reach({ reachData }: ReachData) {
         <h3 className={styles.reach_title}>
           REACH
           <span className={styles.reach_name}>
-            {reachData.name}
+            {reachData && reachData.name}
           </span>
         </h3>
         {
-          reachData.userName === authName
+          reachData &&
+            reachData.userName === authName
             ? <Link className={styles.edit_link} href='/edit/1' >
               <div className={styles.edit_link_inner}>
                 <Image src='/create.svg' fill sizes="100%" alt="create" />
@@ -42,13 +43,13 @@ export default function Reach({ reachData }: ReachData) {
         }
       </div>
       {
-        reachData.userName === authName
-          ? <JournalButton journal={reachData.name}/>
+        reachData
+          && reachData.userName === authName
+          ? <JournalButton journal={reachData.name !== undefined ? reachData.name : ''} />
           : <div className={styles.authDetail_container}>
             <AuthDetail userData={userData} />
           </div>
       }
-
     </div>
   )
 }

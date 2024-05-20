@@ -15,7 +15,7 @@
 file:///Users/yosuke/Desktop/Reine/documents/design/SYSTEM.drawio.png
 
 ## ワイヤーフレーム兼デザインカンプ
-https://www.figma.com/design/AHCdCF0YWXl5T9UwiBvCHX/Reina?node-id=0-1&t=hQmLoyp1Czv6he4l-0
+[figma]https://www.figma.com/design/AHCdCF0YWXl5T9UwiBvCHX/Reina?node-id=0-1&t=hQmLoyp1Czv6he4l-0
 
 ## テーブル定義書
 goal

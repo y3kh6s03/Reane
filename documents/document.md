@@ -12,7 +12,7 @@
 【まったくの未経験の分野でも情報を精査することができ、マンダラチャートの作成の精度向上し、目標達成をサポートします】
 
 ## 業務フロー
-file:///Users/yosuke/Desktop/Reine/documents/design/WORK_FLOW.drawio.png
+file:///Users/yosuke/Desktop/Reine/documents/design/SYSTEM.drawio.png
 
 ## ワイヤーフレーム兼デザインカンプ
 https://www.figma.com/design/AHCdCF0YWXl5T9UwiBvCHX/Reina?node-id=0-1&t=hQmLoyp1Czv6he4l-0

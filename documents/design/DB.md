@@ -74,7 +74,7 @@ action_references
 |     | reference_id | unsignedInteger |      |         | ◯   |        |      | references table |
 
 
-## エンティティ
+<!-- ## エンティティ -->
 <!-- 1. user
 - id(auto_increment)
 - name

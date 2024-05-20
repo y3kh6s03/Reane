@@ -1,6 +1,6 @@
 # Reine アプリケーション設定
 
-## theme
+## テーマ
 【必要なスキルを明確化し、具体的なスキル習得に向けた行動を起こし目標達成】したい
 【新たな挑戦をする人】向けの
 【Reine】というプロダクトは
@@ -12,7 +12,7 @@
 【まったくの未経験の分野でも情報を精査することができ、マンダラチャートの作成の精度向上し、目標達成をサポートします】
 
 ## 業務フロー
-file:///Users/yosuke/Desktop/Reine/documents/design/SYSTEM.drawio.png
+![業務フロー](./design/WORK_FLOW.drawio.png)
 
 ## ワイヤーフレーム兼デザインカンプ
 [figma ワイヤーフレーム](https://www.figma.com/design/AHCdCF0YWXl5T9UwiBvCHX/Reina?node-id=0-1&t=hQmLoyp1Czv6he4l-0)
@@ -85,5 +85,5 @@ action_references
 |     |              |                 |      |         |     |        |      |                  |
 
 ## システム構成図
-file:///Users/yosuke/Desktop/Reine/documents/design/SYSTEM.drawio.png
+![業務フロー](./design/SYSTEM.drawio.png)
 

@@ -11,8 +11,8 @@ import SideBar from "./components/layouts/sidebar/SideBar";
 
 export const metadata: Metadata = {
   title: {
-    template: '%s | REINA',
-    default: 'REINA'
+    template: '%s | REANA',
+    default: 'REANA'
   },
   description: "",
 };

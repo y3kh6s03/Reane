@@ -19,7 +19,7 @@ export default function LoginForm() {
           <span className={styles.subname}>
             Share Mandala Chart
           </span>
-          REINE
+          REANE
         </h1>
         <div className={styles.image_container}>
           <Image

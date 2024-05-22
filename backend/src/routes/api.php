@@ -22,7 +22,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::prefix('/myChart')
 ->controller(ChartController::class)
-->name('reina')
+->name('reana')
 ->group(function(){
 	Route::post('/', 'index')->name('index');
 	Route::post('/create', 'store')->name('store');

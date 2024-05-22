@@ -7,7 +7,7 @@
         <mxCell id="juHsKR98GJSo30kuV_IV-2" value="" style="rounded=1;whiteSpace=wrap;html=1;movable=1;resizable=1;rotatable=1;deletable=1;editable=1;locked=0;connectable=1;" parent="1" vertex="1">
           <mxGeometry x="40" y="50" width="350" height="920" as="geometry" />
         </mxCell>
-        <mxCell id="77e6c97f196da883-1" value="Reine" style="swimlane;html=1;childLayout=stackLayout;startSize=20;rounded=0;shadow=0;labelBackgroundColor=none;strokeWidth=1;fontFamily=Verdana;fontSize=8;align=center;" parent="1" vertex="1">
+        <mxCell id="77e6c97f196da883-1" value="Reane" style="swimlane;html=1;childLayout=stackLayout;startSize=20;rounded=0;shadow=0;labelBackgroundColor=none;strokeWidth=1;fontFamily=Verdana;fontSize=8;align=center;" parent="1" vertex="1">
           <mxGeometry x="560" y="40" width="1000" height="1080" as="geometry" />
         </mxCell>
         <mxCell id="juHsKR98GJSo30kuV_IV-35" value="Guest User" style="swimlane;whiteSpace=wrap;html=1;startSize=20;" parent="77e6c97f196da883-1" vertex="1">

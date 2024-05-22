@@ -1,9 +1,9 @@
-# Reine アプリケーション設計
+# Reane アプリケーション設計
 
 ## テーマ
 【必要なスキルを明確化し、具体的なスキル習得に向けた行動を起こし目標達成】したい
 【新たな挑戦をする人】向けの
-【Reine】というプロダクトは
+【Reane】というプロダクトは
 【チャレンジャーズコミュニティアプリ】です。<br/>
 これは
 【目標達成に必要な行動が不明確な人でも、大谷翔平が利用していたマンダラチャートを作成】することができます。
@@ -15,7 +15,7 @@
 ![業務フロー](./design/WORK_FLOW.drawio.png)
 
 ## ワイヤーフレーム兼デザインカンプ
-[figma ワイヤーフレーム](https://www.figma.com/design/AHCdCF0YWXl5T9UwiBvCHX/Reina?node-id=0-1&t=hQmLoyp1Czv6he4l-0)
+[figma ワイヤーフレーム](https://www.figma.com/design/AHCdCF0YWXl5T9UwiBvCHX/Reane?node-id=0-1&t=hQmLoyp1Czv6he4l-0)
 
 ## テーブル定義書
 goal

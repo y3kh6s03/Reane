@@ -84,6 +84,6 @@ action_references
 |     | reference_id | unsignedInteger |      |         | ◯   |        |      | references table |
 |     |              |                 |      |         |     |        |      |                  |
 
-## システム構成図
-![業務フロー](./design/SYSTEM.drawio.png)
+## インフラ構成図
+![インフラ構成図](./design/ infraMap.png)
 

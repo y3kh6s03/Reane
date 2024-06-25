@@ -8,7 +8,7 @@
 |     | image  | string(255)     | ◯    |         |     |        |      |                  | --> |
 
 
-goal
+reach
 | PK  | COLUMN          | TYPE            | NULL | DEFAULT | FK  | UNIQUE | AUTO | COMMENT         |
 | --- | --------------- | --------------- | ---- | ------- | --- | ------ | ---- | --------------- |
 | ◯   | id              | unsignedInteger |      |         |     |        | ◯    |                 |
@@ -57,11 +57,13 @@ favorite_users
 |     | user_id          | unsignedInteger |      |         | ◯   |        |      | users table |
 |     | favorite_user_id | unsignedInteger |      |         | ◯   |        |      | users table |
 
-references
+journal
 | PK  | COLUMN    | TYPE            | NULL | DEFAULT  | FK  | UNIQUE | AUTO | COMMENT        |
 | --- | --------- | --------------- | ---- | -------- | --- | ------ | ---- | -------------- |
 | ◯   | id        | unsignedInteger |      |          |     |        | ◯    |                |
 |     | user_id   | unsignedInteger |      |          | ◯   |        |      | users table    |
+|     | reach_id   | unsignedInteger |      |          | ◯   |        |      | reach table    |
+|     | skill_id   | unsignedInteger |      |          | ◯   |        |      | skill table    |
 |     | date      | date            |      |          |     |        |      |                |
 |     | exec_time | time            | ◯    | 00:00:00 |     |        |      |                |
 |     | memo      | text            |      |          |     |        |      | furikaeri memo |
@@ -71,7 +73,7 @@ action_references
 | --- | ------------ | --------------- | ---- | ------- | --- | ------ | ---- | ---------------- |
 | ◯   | id           | unsignedInteger |      |         |     |        | ◯    |                  |
 |     | action_id    | unsignedInteger |      |         | ◯   |        |      | actions table    |
-|     | reference_id | unsignedInteger |      |         | ◯   |        |      | references table |
+|     | journal_id | unsignedInteger |      |         | ◯   |        |      | journal table |
 
 
 <!-- ## エンティティ -->

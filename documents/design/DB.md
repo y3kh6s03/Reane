@@ -1,4 +1,4 @@
-# テーブル定義書
+q# テーブル定義書
 <!-- users
 | PK  | COLUMN | TYPE            | NULL | DEFAULT | FK  | UNIQUE | AUTO | COMMENT          |
 | --- | ------ | --------------- | ---- | ------- | --- | ------ | ---- | ---------------- |
@@ -35,6 +35,22 @@ actions
 |     | reach_id     | unsignedInteger |      |         | ◯   |        |      | reach table |
 |     | is_completed | boolean         |      | 0       |     |        |      |             |
 
+journal
+| PK  | COLUMN      | TYPE            | NULL | DEFAULT | FK  | UNIQUE | AUTO | COMMENT        |
+| --- | ----------- | --------------- | ---- | ------- | --- | ------ | ---- | -------------- |
+| ◯   | id          | unsignedInteger |      |         |     |        | ◯    |                |
+|     | reach_id    | unsignedInteger |      |         | ◯   |        |      | reach table    |
+|     | skill_id    | unsignedInteger |      |         | ◯   |        |      | skill table    |
+|     | date        | date            |      |         |     |        |      |                |
+|     | description | text            |      |         |     |        |      | furikaeri memo |
+
+action_journal
+| PK  | COLUMN     | TYPE            | NULL | DEFAULT | FK  | UNIQUE | AUTO | COMMENT       |
+| --- | ---------- | --------------- | ---- | ------- | --- | ------ | ---- | ------------- |
+| ◯   | id         | unsignedInteger |      |         |     |        | ◯    |               |
+|     | action_id  | unsignedInteger |      |         | ◯   |        |      | actions table |
+|     | journal_id | unsignedInteger |      |         | ◯   |        |      | journal table |
+
 comments
 | PK  | COLUMN  | TYPE            | NULL | DEFAULT | FK  | UNIQUE | AUTO | COMMENT     |
 | --- | ------- | --------------- | ---- | ------- | --- | ------ | ---- | ----------- |
@@ -56,24 +72,6 @@ favorite_users
 | ◯   | id               | unsignedInteger |      |         |     |        | ◯    |             |
 |     | user_id          | unsignedInteger |      |         | ◯   |        |      | users table |
 |     | favorite_user_id | unsignedInteger |      |         | ◯   |        |      | users table |
-
-journal
-| PK  | COLUMN    | TYPE            | NULL | DEFAULT  | FK  | UNIQUE | AUTO | COMMENT        |
-| --- | --------- | --------------- | ---- | -------- | --- | ------ | ---- | -------------- |
-| ◯   | id        | unsignedInteger |      |          |     |        | ◯    |                |
-|     | user_id   | unsignedInteger |      |          | ◯   |        |      | users table    |
-|     | reach_id   | unsignedInteger |      |          | ◯   |        |      | reach table    |
-|     | skill_id   | unsignedInteger |      |          | ◯   |        |      | skill table    |
-|     | date      | date            |      |          |     |        |      |                |
-|     | exec_time | time            | ◯    | 00:00:00 |     |        |      |                |
-|     | memo      | text            |      |          |     |        |      | furikaeri memo |
-
-action_references
-| PK  | COLUMN       | TYPE            | NULL | DEFAULT | FK  | UNIQUE | AUTO | COMMENT          |
-| --- | ------------ | --------------- | ---- | ------- | --- | ------ | ---- | ---------------- |
-| ◯   | id           | unsignedInteger |      |         |     |        | ◯    |                  |
-|     | action_id    | unsignedInteger |      |         | ◯   |        |      | actions table    |
-|     | journal_id | unsignedInteger |      |         | ◯   |        |      | journal table |
 
 
 <!-- ## エンティティ -->

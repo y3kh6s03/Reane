@@ -52,8 +52,13 @@ Googleアカウントを利用したログインで、特別な登録不要で�
 
 <br><br>
 ## 4. ER図
+![ER](https://github.com/y3kh6s03/Reane/assets/129368661/d293c850-ea73-4e1d-b694-e869eee18c44)
+<br><br>
 
 ## 5. インフラ構成図
 ![infraMap drawio](https://github.com/y3kh6s03/Reane/assets/129368661/615e8bba-1e07-4e13-a669-c939f85049ff)
+<br><br>
+
 ## 6. 画面遷移図
 ![Reana](https://github.com/y3kh6s03/Reane/assets/129368661/7453725a-564d-40cf-afaa-f810a9f4d016)
+<br><br>

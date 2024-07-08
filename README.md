@@ -56,7 +56,7 @@ Googleアカウントを利用したログインで、特別な登録不要で�
 <br><br>
 
 ## 5. インフラ構成図
-![infraMap drawio](https://github.com/y3kh6s03/Reane/assets/129368661/615e8bba-1e07-4e13-a669-c939f85049ff)
+![infraMap](https://github.com/y3kh6s03/Reane/assets/129368661/c8bb6e95-8704-4114-8d26-4b5ba7839672)
 <br><br>
 
 ## 6. 画面遷移図

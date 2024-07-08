@@ -52,7 +52,7 @@ Googleアカウントを利用したログインで、特別な登録不要で�
 
 <br><br>
 ## 4. ER図
-![ER](https://github.com/y3kh6s03/Reane/assets/129368661/d293c850-ea73-4e1d-b694-e869eee18c44)
+![ER](https://github.com/y3kh6s03/Reane/assets/129368661/37603128-6983-4c75-8cb8-a31fb5eb1e2f)
 <br><br>
 
 ## 5. インフラ構成図

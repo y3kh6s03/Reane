@@ -86,7 +86,7 @@ Reaneは大谷翔平選手が学生時代から活用していたマンダラチ
 ## MyChartController
 | Method | URL                                    | Description                        |
 | ------ | -------------------------------------- | ---------------------------------- |
-| POST   | /myChart/                              | 指定したユーザーのチャート一覧を取得 |
+| POST   | /myChart　　                              | 指定したユーザーのチャート一覧を取得 |
 | POST   | /myChart/create                        | 新しいチャートを作成               |
 | PATCH  | /myChart/reach/{id}                    | 指定したチャートの名前を更新       |
 | DELETE | /myChart/reach/{id}                    | 指定したチャートを削除             |
@@ -103,7 +103,7 @@ Reaneは大谷翔平選手が学生時代から活用していたマンダラチ
 ## JournalController
 | Method | URL            | Description                |
 | ------ | -------------- | -------------------------- |
-| POST   | /journal/      | ジャーナルの一覧を取得     |
+| POST   | /journal　　      | ジャーナルの一覧を取得     |
 | POST   | /journal/store | 新しいジャーナルを作成     |
 
 

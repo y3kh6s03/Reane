@@ -1,12 +1,12 @@
 # Reane
-[マンダラチャートコミュニケーションアプリ　【REANE】](https://reane.site/) 
+[マンダラチャートコミュニケーションアプリ　【REANE】](https://reane.site/)
 
 ![banner](https://github.com/y3kh6s03/Reane/assets/129368661/af1744a9-4332-4d49-82a2-b32fbda01efa)
 
 ## サービスのURL
 Googleアカウントを利用したログインで、特別な登録不要で簡単にご利用いただけます。<br>
 
-[https://reane.site/](https://reane.site/) 
+[https://reane.site/](https://reane.site/)
 <br><br><br>
 
 ## 1. 概要
@@ -22,34 +22,34 @@ Reaneは大谷翔平選手が学生時代から活用していたマンダラチ
 <br><br>
 
 ## 2. 機能一覧
-|ログインページ  |トップページ  |
-| --- | --- |
-|![login](https://github.com/y3kh6s03/Reane/assets/129368661/9490fcd3-8a75-43cb-97d6-2f9abee7651b)|![top](https://github.com/y3kh6s03/Reane/assets/129368661/56960e07-54ec-4f77-afc5-24f0507d82f8)|
-| アカウントは、Google アカウントでログインが可能です。その他に登録などはなにも必要ありません。|トップページでは、ロールモデルとなる全ユーザーのチャートの概要を一覧で閲覧することができます。<br>ナビゲーションメニューからアプリ主要機能のロールモデル一覧、チャート作成画面、自分のチャートの閲覧が可能です。|
+| ログインページ                                                                                    | トップページ                                                                                                                                                                                                     |
+| ------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ![login](https://github.com/y3kh6s03/Reane/assets/129368661/9490fcd3-8a75-43cb-97d6-2f9abee7651b) | ![top](https://github.com/y3kh6s03/Reane/assets/129368661/56960e07-54ec-4f77-afc5-24f0507d82f8)                                                                                                                  |
+| アカウントは、Google アカウントでログインが可能です。その他に登録などはなにも必要ありません。     | トップページでは、ロールモデルとなる全ユーザーのチャートの概要を一覧で閲覧することができます。<br>ナビゲーションメニューからアプリ主要機能のロールモデル一覧、チャート作成画面、自分のチャートの閲覧が可能です。 |
 
-|チャート作成ページ  |My Chartページ  |
-| --- | --- |
-|![create](https://github.com/y3kh6s03/Reane/assets/129368661/30ecfd19-3891-4249-845b-03e0ecc89411)|![My Chart](https://github.com/y3kh6s03/Reane/assets/129368661/eb0dd46a-b229-4545-b656-a603e7fdeba7)|
-| チャート作成ページでは、目標(Reach)、目標に必要な要素（Skill）、要素に必要な行動(Action)を入力していきます。<br>作成後も必要に応じてそれぞれの項目を修正、追加、削除が可能です。|My Chart画面では目標(Reach)と要素（Skill）を一覧で表示しています。<br>また行動の進捗の達成度も可視化しています。要素を追加したいときには、モーダルが表示され、簡単に追加することが可能です。|
+| チャート作成ページ                                                                                                                                                               | My Chartページ                                                                                                                                                                               |
+| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ![create](https://github.com/y3kh6s03/Reane/assets/129368661/30ecfd19-3891-4249-845b-03e0ecc89411)                                                                               | ![My Chart](https://github.com/y3kh6s03/Reane/assets/129368661/eb0dd46a-b229-4545-b656-a603e7fdeba7)                                                                                         |
+| チャート作成ページでは、目標(Reach)、目標に必要な要素（Skill）、要素に必要な行動(Action)を入力していきます。<br>作成後も必要に応じてそれぞれの項目を修正、追加、削除が可能です。 | My Chart画面では目標(Reach)と要素（Skill）を一覧で表示しています。<br>また行動の進捗の達成度も可視化しています。要素を追加したいときには、モーダルが表示され、簡単に追加することが可能です。 |
 
-|行動一覧ページ  |振り返り入力ページ  |
-| --- | --- |
-|![action](https://github.com/y3kh6s03/Reane/assets/129368661/4a2f3382-2fe8-47c3-b90d-0aee0c63ce29)|![journal](https://github.com/y3kh6s03/Reane/assets/129368661/b08e9a10-11e6-4d0a-a1f2-a4d3a613863b)|
-| 要素に設定した行動一覧を確認することができます。<br>行動済みや実施済みとなった行動にはチェックを入れることで進捗管理ができます。<br>取り組みを進める中で、行動の追加削除も画面遷移不要で実施することが可能です。|取り組みの振り返りや気づき、感じたことを記入することができます。|
+| 行動一覧ページ                                                                                                                                                                                                   | 振り返り入力ページ                                                                                  |
+| ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- |
+| ![action](https://github.com/y3kh6s03/Reane/assets/129368661/4a2f3382-2fe8-47c3-b90d-0aee0c63ce29)                                                                                                               | ![journal](https://github.com/y3kh6s03/Reane/assets/129368661/b08e9a10-11e6-4d0a-a1f2-a4d3a613863b) |
+| 要素に設定した行動一覧を確認することができます。<br>行動済みや実施済みとなった行動にはチェックを入れることで進捗管理ができます。<br>取り組みを進める中で、行動の追加削除も画面遷移不要で実施することが可能です。 | 取り組みの振り返りや気づき、感じたことを記入することができます。                                    |
 
 <br><br>
 ## 3. 使用技術一覧
-| カテゴリ          | 使用技術
-| ----------------- | --------------------------------------------------   |
-| フロントエンド          | TypeScript, React^18.2, Next.js 14.2, Sass                |
-| バックエンド           | Laravel 10                          |
-| ライブラリ          | CSS Modules, Redux, axios, React-hook-form, next-auth.js, |
-| インフラ    | Vercel(フロントエンド) ,AWS（EC2, RDS, CloudCloudFront など）, |
-| Database          | MySQL                                           |
-| Environment setup | Docker                                               |
-| CI/CD             | GitHub Actions                                       |
-| 　デザインツール            | Figma, drew.io                                         |
-| 開発ツール           | ESLint(eslint-config-airbnb), Prettier, Jest, Git, GitHub |
+| カテゴリ          | 使用技術                                                       |
+| ----------------- | -------------------------------------------------------------- |
+| フロントエンド    | TypeScript, React^18.2, Next.js 14.2, Sass                     |
+| バックエンド      | Laravel 10                                                     |
+| ライブラリ        | CSS Modules, Redux, axios, React-hook-form, next-auth.js,      |
+| インフラ          | Vercel(フロントエンド) ,AWS（EC2, RDS, CloudCloudFront など）, |
+| Database          | MySQL                                                          |
+| Environment setup | Docker                                                         |
+| CI/CD             | GitHub Actions                                                 |
+| デザインツール    | Figma, drew.io                                                 |
+| 開発ツール        | ESLint(eslint-config-airbnb), Prettier, Jest, Git, GitHub      |
 
 <br><br>
 ## 4. ER図
@@ -64,7 +64,54 @@ Reaneは大谷翔平選手が学生時代から活用していたマンダラチ
 ![Reana](https://github.com/y3kh6s03/Reane/assets/129368661/7453725a-564d-40cf-afaa-f810a9f4d016)
 <br><br>
 
-## 7. 今後の展望
+## 7. ルーティング
+### フロントエンド
+| Method | URL                              | Component                            | Description       |
+| ------ | -------------------------------- | ------------------------------------ | ----------------- |
+| GET    | /login                           | `/features/login/index.tsx`          | ログイン画面       |
+| GET    | /home                            | `/features/home/index.tsx`           | 全ユーザーチャート一覧 |
+| GET    | /show/[id]                       | `/features/chartView/index.tsx`      | チャート詳細ページ    |
+| GET    | /skillAndAction/[name]/[...slug] | `/features/skillAndAction/index.tsx` | Action一覧         |
+| GET    | /myChart                         | `/features/chartView/index.tsx`      | 自分のチャート表示    |
+| GET    | /create                          | `/features/create/index.tsx`         | チャート作成       |
+| GET    | /journal                         | `/features/journal/index.tsx`        | 振り返りの作成・表示 |
+| GET    | /privacy                         | `/privacy/page.tsx`                  | プライバシーポリシー  |
+
+### バックエンド
+## ChartController
+| Method | URL        | Description                   |
+| ------ | ---------- | ----------------------------- |
+| GET    | /chart/all | 全ユーザーのチャートを取得    |
+
+## MyChartController
+| Method | URL                                    | Description                        |
+| ------ | -------------------------------------- | ---------------------------------- |
+| POST   | /myChart/                              | 指定したユーザーのチャート一覧を取得 |
+| POST   | /myChart/create                        | 新しいチャートを作成               |
+| PATCH  | /myChart/reach/{id}                    | 指定したチャートの名前を更新       |
+| DELETE | /myChart/reach/{id}                    | 指定したチャートを削除             |
+| POST   | /myChart/reach/skill/{skillId}         | 指定したスキルの名前を更新         |
+| PATCH  | /myChart/reach/skill/{skillId}         | 新しいスキルを追加                 |
+| DELETE | /myChart/reach/skill/{skillId}         | 指定したスキルを削除               |
+| POST   | /myChart/reach/skill/action/{actionid} | 新しい行動を追加                   |
+| PUT    | /myChart/reach/skill/action/{actionid} | 指定した行動を更新                 |
+| PATCH  | /myChart/reach/skill/action/{actionid} | 指定した行動のステータスを更新     |
+| DELETE | /myChart/reach/skill/action/{actionid} | 指定した行動を削除                 |
+| GET    | /myChart/test                          | テスト用GETリクエスト              |
+| POST   | /myChart/test                          | テスト用POSTリクエスト             |
+
+## JournalController
+| Method | URL            | Description                |
+| ------ | -------------- | -------------------------- |
+| POST   | /journal/      | ジャーナルの一覧を取得     |
+| POST   | /journal/store | 新しいジャーナルを作成     |
+
+
+バックエンドのルーティングの詳細については、[こちらのドキュメント](API_Documentation.md)をご参照ください。
+
+<br><br>
+
+## 8. 今後の展望
 - 本プロダクトは今後以下の開発を進めていきます。
   - マンダラチャート検索機能: マンダラチャートの検索機能を追加。ユーザーのロールモデルを見つけやすくすることで、目標策定をサポートします。
   - コメント機能：　ユーザー同士のコメント機能を追加。質問やコミュニケーションが発生することでモチベーション向上や、情報共有を実現します。

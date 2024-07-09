@@ -62,7 +62,7 @@ Reaneは大谷翔平選手が学生時代から活用していたマンダラチ
 
 ## 6. 画面遷移図
 ![Reana](https://github.com/y3kh6s03/Reane/assets/129368661/7453725a-564d-40cf-afaa-f810a9f4d016)
-<br><br>
+<br><br><br><br>
 
 ## 7. ルーティング
 ### フロントエンド

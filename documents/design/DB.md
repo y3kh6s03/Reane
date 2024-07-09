@@ -1,12 +1,4 @@
 q# テーブル定義書
-<!-- users
-| PK  | COLUMN | TYPE            | NULL | DEFAULT | FK  | UNIQUE | AUTO | COMMENT          |
-| --- | ------ | --------------- | ---- | ------- | --- | ------ | ---- | ---------------- |
-| ◯   | id     | unsignedInteger |      |         |     |        | ◯    |                  |
-|     | name   | string(20)      | ◯    |         |     |        |      | null=google-name |
-|     | email  | string(100)     |      |         |     |        |      | google email     |
-|     | image  | string(255)     | ◯    |         |     |        |      |                  | --> |
-
 
 reach
 | PK  | COLUMN          | TYPE            | NULL | DEFAULT | FK  | UNIQUE | AUTO | COMMENT         |
@@ -24,7 +16,7 @@ skills
 | --- | ------- | --------------- | ---- | ------- | --- | ------ | ---- | ----------- |
 | ◯   | id      | unsignedInteger |      |         |     |        | ◯    |             |
 |     | name    | string(50)      |      |         |     |        |      | skill name  |
-|     | goal_id | unsignedInteger |      |         | ◯   |        |      | goals table |
+|     | reach_id | unsignedInteger |      |         | ◯   |        |      | reach table |
 
 actions
 | PK  | COLUMN       | TYPE            | NULL | DEFAULT | FK  | UNIQUE | AUTO | COMMENT     |
@@ -55,94 +47,13 @@ comments
 | PK  | COLUMN  | TYPE            | NULL | DEFAULT | FK  | UNIQUE | AUTO | COMMENT     |
 | --- | ------- | --------------- | ---- | ------- | --- | ------ | ---- | ----------- |
 | ◯   | id      | unsignedInteger |      |         |     |        | ◯    |             |
-|     | user_id | unsignedInteger |      |         | ◯   |        |      | users table |
-|     | goal_id | unsignedInteger |      |         | ◯   |        |      | goals table |
+|     | user_email |string(254) |      |         | ◯   |        |      |  |
+|     | reach_id | unsignedInteger |      |         | ◯   |        |      | reach table |
 |     | comment | text            |      |         |     |        |      | comment     |
 
-favorite_goals
+favorite_reaches
 | PK  | COLUMN  | TYPE            | NULL | DEFAULT | FK  | UNIQUE | AUTO | COMMENT     |
 | --- | ------- | --------------- | ---- | ------- | --- | ------ | ---- | ----------- |
 | ◯   | id      | unsignedInteger |      |         |     |        | ◯    |             |
-|     | user_id | unsignedInteger |      |         | ◯   |        |      | users name  |
-|     | goal_id | unsignedInteger |      |         | ◯   |        |      | goals table |
-
-favorite_users
-| PK  | COLUMN           | TYPE            | NULL | DEFAULT | FK  | UNIQUE | AUTO | COMMENT     |
-| --- | ---------------- | --------------- | ---- | ------- | --- | ------ | ---- | ----------- |
-| ◯   | id               | unsignedInteger |      |         |     |        | ◯    |             |
-|     | user_id          | unsignedInteger |      |         | ◯   |        |      | users table |
-|     | favorite_user_id | unsignedInteger |      |         | ◯   |        |      | users table |
-
-
-<!-- ## エンティティ -->
-<!-- 1. user
-- id(auto_increment)
-- name
-- email
-- image(url) googleからそのまま流用しよう
-- created_at
-- updated_at
-
-1. goal
-- id(auto_increment)
-- name
-- user_id (1対多)
-- total_views
-- total_citations
-- created_at
-- updated_at -->
-
-<!--
-1. comment
-- id
-- goal_id
-- user_id
-- comment -->
-
-
-
-<!-- 1. skill
-- id
-- name
-- goal_id
-- created_at
-- updated_at -->
-<!--
-
-1. action
-- id
-- name
-- skill_id -->
-
-
-<!-- 1. favorite_goal
-- id
-- user_id
-- goal_id -->
-
-
-<!-- 1. favorite_users
-- id
-- user_id
-- favorite_user_id -->
-
-
-<!-- 1. likesテーブル
-- id
-- user_id
-- post_id -->
-
-<!-- 1. referencesテーブル
-- id
-- user_id
-- date
-- exec_time
-- memo
-
-
-
-1.  action_referencesテーブル
-- id
-- action_id
-- reference_id -->
-
+|     | user_email | string(254) |      |         | ◯   |        |      |   |
+|     | reach_id | unsignedInteger |      |         | ◯   |        |      | goals table |
